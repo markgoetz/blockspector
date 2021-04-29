@@ -1,0 +1,9 @@
+{
+  "name": "blockspector",
+  "version": "0.0.0",
+  "description": "A Minecraft project inspector",
+  "main": "index.js",
+  "repository": "https://github.com/markgoetz/blockspector.git",
+  "author": "Mark Goetz <breakawayblue@gmail.com>",
+  "license": "MIT"
+}
