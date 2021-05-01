@@ -1,3 +1,5 @@
 Sketch
 node_modules
 .DS_Store
+.snowpack
+build

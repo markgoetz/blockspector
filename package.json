@@ -1,9 +1,47 @@
 {
-  "name": "blockspector",
-  "version": "0.0.0",
-  "description": "A Minecraft project inspector",
-  "main": "index.js",
-  "repository": "https://github.com/markgoetz/blockspector.git",
-  "author": "Mark Goetz <breakawayblue@gmail.com>",
-  "license": "MIT"
+    "name": "blockspector",
+    "version": "0.0.0",
+    "description": "A Minecraft project inspector",
+    "main": "index.js",
+    "repository": "https://github.com/markgoetz/blockspector.git",
+    "author": "Mark Goetz <mark@markandrewgoetz.com>",
+    "license": "MIT",
+    "dependencies": {
+        "@react-three/fiber": "^6.0.19",
+        "react": "^17.0.2",
+        "react-dom": "^17.0.2",
+        "three": "^0.128.0",
+        "typescript": "^4.2.4"
+    },
+    "scripts": {
+        "start": "snowpack dev",
+        "build": "snowpack build",
+        "test": "web-test-runner \"src/**/*.test.tsx\"",
+        "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx}\"",
+        "lint": "yarn lint:prettier && yarn lint:eslint && yarn lint:styles",
+        "lint:eslint": "eslint . --ext .ts,.tsx --fix",
+        "lint:prettier": "prettier --check \"src/**/*.{js,jsx,ts,tsx}\"",
+        "lint:styles": "stylelint \"**/*.css\" --fix"
+    },
+    "devDependencies": {
+        "@snowpack/plugin-dotenv": "^2.1.0",
+        "@snowpack/plugin-react-refresh": "^2.5.0",
+        "@snowpack/plugin-typescript": "^1.2.1",
+        "@snowpack/web-test-runner-plugin": "^0.2.2",
+        "@testing-library/react": "^11.2.6",
+        "@types/chai": "^4.2.17",
+        "@types/mocha": "^8.2.2",
+        "@types/react": "^17.0.4",
+        "@types/react-dom": "^17.0.3",
+        "@types/snowpack-env": "^2.3.3",
+        "@typescript-eslint/eslint-plugin": "^4.22.0",
+        "@typescript-eslint/parser": "^4.22.0",
+        "@web/test-runner": "^0.13.3",
+        "chai": "^4.3.4",
+        "eslint": "^7.25.0",
+        "prettier": "^2.2.1",
+        "snowpack": "^3.3.7",
+        "stylelint": "^13.13.1",
+        "stylelint-config-standard": "^22.0.0"
+    }
 }
