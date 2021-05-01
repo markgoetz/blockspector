@@ -3,3 +3,4 @@ node_modules
 .DS_Store
 .snowpack
 build
+yarn-error.log
