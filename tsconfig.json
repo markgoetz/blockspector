@@ -17,11 +17,11 @@
         "noEmit": true,
         /* Additional Options */
         "strict": true,
-        "skipLibCheck": true,
+        "skipLibCheck": false,
         "types": ["mocha", "snowpack-env"],
         "forceConsistentCasingInFileNames": true,
         "resolveJsonModule": true,
         "allowSyntheticDefaultImports": true,
-        "importsNotUsedAsValues": "error"
+        "importsNotUsedAsValues": "preserve"
     }
 }
