@@ -2,7 +2,8 @@ module.exports = {
     root: true,
     parser: '@typescript-eslint/parser',
     plugins: [
-        '@typescript-eslint',
+        '@emotion',
+        '@typescript-eslint'
     ],
     extends: [
         'eslint:recommended',
@@ -12,5 +13,9 @@ module.exports = {
         "browser": true,
         "amd": true,
         "node": true
+    },
+    rules: {
+        "@emotion/jsx-import": "error",
+        '@emotion/syntax-preference': [2, "object"],
     }
 };

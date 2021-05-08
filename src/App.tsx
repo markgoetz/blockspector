@@ -1,37 +1,37 @@
-import React, { useState, useEffect } from 'react';
-import logo from './logo.svg';
-import './App.css';
+/** @jsx jsx */
+import { CSSObject, Global, jsx } from '@emotion/react';
+import React from 'react';
+import Footer from './components/Footer';
+import Header from './components/Header';
+import Sidebar from './components/Sidebar';
+import Toolbar from './components/Toolbar';
+import UIGrid from './components/UIGrid';
+import FONT_FACE from './styles/fonts';
+import GLOBAL_STYLES from './styles/global';
+import RESET from './styles/reset';
+
+const app: CSSObject = {
+    position: 'fixed',
+    top: 0,
+    bottom: 0,
+    left: 0,
+    right: 0,
+    backgroundImage: 'linear-gradient(to bottom, #c4f1ef, #f0fffe)',
+};
 
 const App: React.FC = () => {
-    // Create the count state.
-    const [count, setCount] = useState(0);
-    // Create the counter (+1 every second).
-    useEffect(() => {
-        const timer = setTimeout(() => setCount(count + 1), 1000);
-        return () => clearTimeout(timer);
-    }, [count, setCount]);
-    // Return the App component.
+    
     return (
-        <div className="App">
-            <header className="App-header">
-                <img src={logo} className="App-logo" alt="logo" />
-                <p>
-                    Edit <code>src/App.tsx</code> and save to reload.
-                </p>
-                <p>
-                    Page has been open for <code>{count}</code> seconds.
-                </p>
-                <p>
-                    <a
-                        className="App-link"
-                        href="https://reactjs.org"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        Learn React
-                    </a>
-                </p>
-            </header>
+        <div css={app}>
+            <Global styles={RESET} />
+            <Global styles={FONT_FACE} />
+            <Global styles={GLOBAL_STYLES} />
+            <UIGrid
+                header={<Header />}
+                sidebar={<Sidebar />}
+                toolbar={<Toolbar />}
+                footer={<Footer />}
+            />
         </div>
     );
 };

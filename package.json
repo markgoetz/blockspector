@@ -7,7 +7,10 @@
     "author": "Mark Goetz <mark@markandrewgoetz.com>",
     "license": "MIT",
     "dependencies": {
+        "@emotion/core": "^11.0.0",
+        "@emotion/react": "^11.4.0",
         "@react-three/fiber": "^6.0.19",
+        "emotion": "^11.0.0",
         "react": "^17.0.2",
         "react-dom": "^17.0.2",
         "three": "^0.128.0",
@@ -24,6 +27,7 @@
         "lint:styles": "stylelint \"**/*.css\" --fix"
     },
     "devDependencies": {
+        "@emotion/eslint-plugin": "^11.2.0",
         "@snowpack/plugin-dotenv": "^2.1.0",
         "@snowpack/plugin-react-refresh": "^2.5.0",
         "@snowpack/plugin-typescript": "^1.2.1",
