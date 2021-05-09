@@ -1,4 +1,4 @@
-import { FONTS, SIZES } from './variables';
+import { FONTS, SIZES, COLORS } from './variables';
 
 const GLOBAL_STYLES = `
     html, body {
@@ -6,11 +6,13 @@ const GLOBAL_STYLES = `
         font-size: ${SIZES.BASE}px;
         margin: 0;
         height: 100%;
+        color: ${COLORS.GRAY.DARKER};
     }
 
     button {
-        font-family: ${FONTS.PRIMARY};
-        font-size: ${SIZES.BASE}px;
+        font-family: inherit;
+        font-size: inherit;
+        color: inherit;
     }
 
     * {
