@@ -47,6 +47,11 @@ table {
     border-collapse: collapse;
     border-spacing: 0;
 }
+button {
+    border-width: 0;
+    background: transparent;
+    padding: 0;
+}
 `;
 
 export default RESET;

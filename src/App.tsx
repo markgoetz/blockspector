@@ -6,6 +6,7 @@ import Header from './components/Header';
 import Sidebar from './components/Sidebar';
 import Toolbar from './components/Toolbar';
 import UIGrid from './components/UIGrid';
+import ToolbarProvider from './context/ToolbarContext';
 import FONT_FACE from './styles/fonts';
 import GLOBAL_STYLES from './styles/global';
 import RESET from './styles/reset';
@@ -26,12 +27,14 @@ const App: React.FC = () => {
             <Global styles={RESET} />
             <Global styles={FONT_FACE} />
             <Global styles={GLOBAL_STYLES} />
-            <UIGrid
-                header={<Header />}
-                sidebar={<Sidebar />}
-                toolbar={<Toolbar />}
-                footer={<Footer />}
-            />
+            <ToolbarProvider>
+                <UIGrid
+                    header={<Header />}
+                    sidebar={<Sidebar />}
+                    toolbar={<Toolbar />}
+                    footer={<Footer />}
+                />
+            </ToolbarProvider>
         </div>
     );
 };

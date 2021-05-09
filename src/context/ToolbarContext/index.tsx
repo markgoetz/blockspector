@@ -2,7 +2,7 @@ import React, { useCallback, useContext, useState } from 'react';
 import Block from '../../definitions/Block';
 import ToolbarContext from "./ToolbarContext";
 
-const ToolbarContext = React.createContext<ToolbarContext>({
+export const ToolbarContext = React.createContext<ToolbarContext>({
     toolbar: [],
     selectedIndex: 0,
     setSelectedIndex: () => null,

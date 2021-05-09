@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { CSSObject, jsx } from '@emotion/react';
+import { jsx } from '@emotion/react';
 import React from 'react';
 
 const Sidebar: React.FC = () => {

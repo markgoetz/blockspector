@@ -8,6 +8,11 @@ const GLOBAL_STYLES = `
         height: 100%;
     }
 
+    button {
+        font-family: ${FONTS.PRIMARY};
+        font-size: ${SIZES.BASE}px;
+    }
+
     * {
         box-sizing: border-box;
     }
