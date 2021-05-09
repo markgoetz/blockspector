@@ -3,7 +3,7 @@ import { FONTS, SIZES } from './variables';
 const GLOBAL_STYLES = `
     html, body {
         font-family: ${FONTS.PRIMARY};
-        font-size: ${SIZES.STANDARD}px;
+        font-size: ${SIZES.BASE}px;
         margin: 0;
         height: 100%;
     }

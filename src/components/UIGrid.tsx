@@ -12,8 +12,8 @@ type Props = {
 
 const GRID_STYLE: CSSObject = {
     display: 'grid',
-    padding: SIZES.STANDARD,
-    gridGap: SIZES.STANDARD,
+    padding: SIZES.BASE,
+    gridGap: SIZES.BASE,
     gridTemplateAreas: `
         "header header header"
         "sidebar unused unused"

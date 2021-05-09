@@ -6,9 +6,10 @@ export const FONTS = {
 export const SIZES = {
     QUARTER: 4,
     HALF: 8,
-    STANDARD: 16,
+    BASE: 16,
     ONEPOINTFIVE: 24,
     DOUBLE: 32,
+    QUADRUPLE: 64,
 };
 
 export const COLORS = {
