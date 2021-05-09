@@ -13,37 +13,37 @@ type Props = {
     tabs: Tab[],
 };
 
-const CONTAINER_STYLE = {
+const CONTAINER_STYLE: CSSObject = {
     borderWidth: 1,
     borderStyle: 'solid',
     borderColor: COLORS.GRAY.MEDIUM,
     backgroundColor: COLORS.GRAY.LIGHT,
 }
 
-const TAB_LIST_STYLE = {
+const TAB_LIST_STYLE: CSSObject = {
     display: 'flex',
     justifyContent: 'stretch',
 }
 
-const TAB_STYLE = {
+const TAB_STYLE: CSSObject = {
     flexGrow: 1,
     fontSize: 20,
     backgroundColor: COLORS.PRIMARY.BRIGHT,
     color: COLORS.GRAY.OFF_WHITE,
 };
 
-const SELECTED_TAB_STYLE = {
+const SELECTED_TAB_STYLE: CSSObject = {
     ...TAB_STYLE,
     backgroundColor: COLORS.GRAY.LIGHT,
     color: COLORS.GRAY.DARKER,
 };
 
-const PANEL_STYLE = {
+const PANEL_STYLE: CSSObject = {
     padding: SIZES.BASE,
     backgroundColor: COLORS.GRAY.LIGHT,
 };
 
-const BUTTON_STYLE = {
+const BUTTON_STYLE: CSSObject = {
     width: '100%',
     height: '100%',
     padding: SIZES.BASE,
