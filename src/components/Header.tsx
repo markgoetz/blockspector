@@ -8,7 +8,7 @@ const LOGO_STYLE: CSSObject = {
     fontSize: SIZES.QUADRUPLE,
     letterSpacing: SIZES.HALF,
     color: COLORS.SECONDARY,
-    '-webkit-text-stroke': `${SIZES.QUARTER}px ${COLORS.GRAY.DARKEST}`,
+    WebkitTextStroke: `${SIZES.QUARTER}px ${COLORS.GRAY.DARKEST}`,
 };
 
 const Header: React.FC = () => {
