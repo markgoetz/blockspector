@@ -63,6 +63,7 @@ const useUpdateToolbarItem = (): ((item: Block) => void) => {
 export default ToolbarProvider;
 
 export {
+    useToolbarState,
     useUpdateSelectedIndex,
     useUpdateToolbarItem,
 };

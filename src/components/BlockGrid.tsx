@@ -12,19 +12,18 @@ const GRID_STYLE: CSSObject = {
     gridGap: SIZES.BASE,
 };
 
-const ITEM_STYLE: CSSObject = {
-    width: SIZES.QUADRUPLE,
-    height: SIZES.QUADRUPLE,
-};
-
 const BlockGrid: React.FC = () => {
     const updateToolbarItem = useUpdateToolbarItem();
 
     return (
         <ul css={GRID_STYLE}>
             {BLOCKS.map(block => (
-                <li key={block.id} css={ITEM_STYLE}>
-                    <BlockButton block={block} onClick={() => updateToolbarItem(block)} />
+                <li key={block.id}>
+                    <BlockButton
+                        block={block}
+                        selected={false}
+                        onClick={() => updateToolbarItem(block)}
+                    />
                 </li>
             ))}
         </ul>
