@@ -18,7 +18,7 @@ type Props = {
 };
 
 const BlockButton: React.FC<Props> = ({ block, index, onClick, selected }) => {
-    const buttonStyle = {
+    const buttonStyle: CSSObject = {
         width: SIZES.QUADRUPLE,
         height: SIZES.QUADRUPLE,
         backgroundImage: block != null ? `url("/assets/textures/${block.imageUrl}")` : undefined,
