@@ -21,7 +21,7 @@ const ToolbarProvider: React.FC = (props) => {
             newToolbar[index] = item;
             setToolbar(newToolbar);
         },
-        []
+        [toolbar, setToolbar]
     );
 
     const context = { toolbar, selectedIndex, setSelectedIndex, setToolbarItemByIndex }
@@ -31,6 +31,10 @@ const ToolbarProvider: React.FC = (props) => {
             {props.children}
         </ToolbarContext.Provider>
     );
+};
+
+const useToolbarState = () => {
+    return context;
 };
 
 const useUpdateSelectedIndex = (): ((index: number) => void) => {
@@ -44,14 +48,15 @@ const useUpdateSelectedIndex = (): ((index: number) => void) => {
     );
 };
 
-const useUpdateToolbarItem = (): ((item: Block, index: number) => void) => {
+const useUpdateToolbarItem = (): ((item: Block) => void) => {
     const context = useContext(ToolbarContext);
+    const { selectedIndex, setToolbarItemByIndex } = context;
 
     return useCallback(
-        (item: Block, index: number) => {
-            context.setToolbarItemByIndex(item, index);
+        (item: Block) => {
+            setToolbarItemByIndex(item, selectedIndex);
         },
-        []
+        [selectedIndex, setToolbarItemByIndex]
     );
 };
 
