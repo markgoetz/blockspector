@@ -21,7 +21,7 @@ const GRID_STYLE: CSSObject = {
         "footer footer footer"
     `,
     gridTemplateRows: 'auto 1fr auto auto',
-    gridTemplateColumns: '1fr auto 1fr',
+    gridTemplateColumns: 'max-content auto 1fr',
     height: '100%',
 };
 

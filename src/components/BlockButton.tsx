@@ -5,9 +5,13 @@ import { COLORS, SIZES } from '../styles/variables';
 
 const INDEX_STYLE: CSSObject = {
     position: 'absolute',
-    top: SIZES.HALF,
-    left: SIZES.HALF,
+    top: 1,
+    left: 1,
     pointerEvents: 'none',
+    backgroundColor: COLORS.GRAY.OFF_WHITE,
+    width: SIZES.ONEPOINTFIVE,
+    lineHeight: 1,
+    padding: SIZES.QUARTER,
 };
 
 type Props = {
