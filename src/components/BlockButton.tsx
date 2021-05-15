@@ -29,7 +29,7 @@ const BlockButton: React.FC<Props> = ({ block, index, onClick, selected }) => {
         backgroundSize: 3 * SIZES.BASE,
         backgroundRepeat: 'no-repeat',
         backgroundPosition: '50% 50%',
-        boxShadow: selected ? `0 0 0 ${SIZES.QUARTER}px ${COLORS.PRIMARY.BRIGHT} inset` : `0 0 0 1px ${COLORS.GRAY.DARKER} inset`,
+        boxShadow: selected ? `0 0 0 ${SIZES.QUARTER}px ${COLORS.PRIMARY.BRIGHT} inset` : `0 0 0 1px ${COLORS.GRAY.DARK} inset`,
         position: 'relative',
     };
 
