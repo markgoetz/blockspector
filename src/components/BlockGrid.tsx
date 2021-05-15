@@ -22,7 +22,7 @@ const BlockGrid: React.FC = () => {
                     <BlockButton
                         block={block}
                         selected={false}
-                        onClick={() => updateToolbarItem(block)}
+                        onClick={() => updateToolbarItem(block.id)}
                     />
                 </li>
             ))}

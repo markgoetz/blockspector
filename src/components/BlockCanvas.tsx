@@ -1,9 +1,10 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/react';
-import React, { Suspense, useRef } from 'react';
-import { Canvas, extend, useFrame, useLoader, useThree } from "@react-three/fiber";
+import React, { useRef } from 'react';
+import { Canvas, extend, useFrame, useThree } from "@react-three/fiber";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
-import { TextureLoader } from 'three/src/loaders/TextureLoader';
+import Spacer from './Spacer';
+import { Vector3 } from 'three';
 
 extend({ OrbitControls });
 
@@ -20,19 +21,13 @@ const CameraControls = () => {
   };
 
 const BlockCanvas: React.FC = () => {
-    const [colorMap] = useLoader(TextureLoader, ['/assets/textures/andesite.png']);
+    const spacerPosition = new Vector3(0, 0, 0);
 
     return (
         <Canvas>
             <ambientLight intensity={.5} />
             <CameraControls />
-            <mesh
-                visible
-                position={[0, 0, 0]}
-            >
-                <boxGeometry args={[1, 1, 1]} />
-                <meshStandardMaterial map={colorMap} />
-            </mesh>
+            <Spacer position={spacerPosition} />
         </Canvas>
     )
 };

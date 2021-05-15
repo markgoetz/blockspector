@@ -1,10 +1,8 @@
-import Block from '../../definitions/Block';
-
 type ToolbarContext = {
-    toolbar: (Block | null)[],
+    toolbar: (string | null)[],
     selectedIndex: number,
     setSelectedIndex: (index: number) => void,
-    setToolbarItemByIndex: (item: Block, index: number) => void,
+    setToolbarItemIdByIndex: (itemId: string, index: number) => void,
 };
 
 export default ToolbarContext;
