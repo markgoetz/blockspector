@@ -1,6 +1,7 @@
 /** @jsx jsx */
 import { CSSObject, Global, jsx } from '@emotion/react';
-import React from 'react';
+import React, { Suspense } from 'react';
+import BlockCanvas from './components/BlockCanvas';
 import Footer from './components/Footer';
 import Header from './components/Header';
 import Sidebar from './components/Sidebar';
@@ -33,6 +34,7 @@ const App: React.FC = () => {
                     sidebar={<Sidebar />}
                     toolbar={<Toolbar />}
                     footer={<Footer />}
+                    canvas={<Suspense fallback={null}><BlockCanvas /></Suspense>}
                 />
             </ToolbarProvider>
         </div>
