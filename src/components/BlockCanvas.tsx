@@ -3,8 +3,8 @@ import { jsx } from '@emotion/react';
 import React, { useRef } from 'react';
 import { Canvas, extend, useFrame, useThree } from "@react-three/fiber";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
-import Spacer from './Spacer';
-import { Vector3, Object3D } from 'three';
+import { useGetBlocks } from '../context/BuildContext';
+import BlockList from './BlockList';
 
 extend({ OrbitControls });
 
@@ -12,10 +12,11 @@ type BlockCanvasInternalProps = {
 };
 
 const BlockCanvasInternal: React.FC<BlockCanvasInternalProps> = () => {
-    const spacerPosition = new Vector3(0, 0, 0);
-    const spacerRef = useRef<Object3D>(null);
-    const { camera, gl: { domElement } } = useThree();
     const controls = useRef<OrbitControls>();
+    const { camera, gl: { domElement } } = useThree();
+    const getBlocks = useGetBlocks();
+    const blocks = getBlocks();
+
     useFrame(
         () => {
             controls.current?.update();
@@ -25,12 +26,11 @@ const BlockCanvasInternal: React.FC<BlockCanvasInternalProps> = () => {
 
     return (
         <React.Fragment>
-            <ambientLight intensity={.5} />
             <orbitControls
                 ref={controls}
                 args={[camera, domElement]}
             />
-            <Spacer position={spacerPosition} ref={spacerRef} />
+            <BlockList blocks={blocks} />
         </React.Fragment>
     );
 };

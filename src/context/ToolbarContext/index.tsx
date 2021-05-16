@@ -1,5 +1,5 @@
 import React, { useCallback, useContext, useState } from 'react';
-import { SPACER_ID } from 'src/constants/blocks';
+import { SPACER_ID } from '../../constants/blocks';
 import ToolbarContext from "./ToolbarContext";
 
 export const ToolbarContext = React.createContext<ToolbarContext>({

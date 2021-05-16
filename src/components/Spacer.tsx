@@ -1,19 +1,18 @@
 import React from 'react';
 import { COLORS } from '../styles/variables';
-import { Object3D, Vector3 } from 'three';
+import { Vector3 } from 'three';
 
 type Props = {
     position: Vector3,
-    ref: React.RefObject<Object3D>;
 };
 
-const Spacer: React.FC<Props> = ({ position, ref }) => {
+const Spacer: React.FC<Props> = ({ position }) => {
     return (
         <mesh
             visible
             position={[position.x, position.y, position.z]}
         >
-            <boxGeometry args={[1, 1, 1]} ref={ref} />
+            <boxGeometry args={[1, 1, 1]} />
             <meshBasicMaterial
                 attach="material"
                 color={COLORS.PRIMARY.BRIGHT}
