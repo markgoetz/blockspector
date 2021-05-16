@@ -16,7 +16,7 @@ const BlockList: React.FC<Props> = ({ blocks }) => {
         <React.Fragment>
             {blocks.map((block, index) => {
                 return block.blockId !== SPACER_ID
-                    ? <Suspense fallback={null}><PlacedBlock block={block} key={index} /></Suspense>
+                    ? <Suspense fallback={null} key={index}><PlacedBlock block={block} /></Suspense>
                     : <Spacer position={block.position} key={index} />;
             })}
         </React.Fragment>
