@@ -1,4 +1,3 @@
-import { ReactThreeFiber } from '@react-three/fiber';
 import React from 'react';
 import { COLORS } from '../styles/variables';
 import { Object3D, Vector3 } from 'three';
