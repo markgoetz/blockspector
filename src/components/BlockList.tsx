@@ -9,9 +9,6 @@ type Props = {
 };
 
 const BlockList: React.FC<Props> = ({ blocks }) => {
-
-    console.info(blocks);
-
     return (
         <React.Fragment>
             {blocks.map((block, index) => {
