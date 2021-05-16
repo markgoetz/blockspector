@@ -1,4 +1,5 @@
 import React, { useCallback, useContext, useState } from 'react';
+import { SPACER_ID } from 'src/constants/blocks';
 import ToolbarContext from "./ToolbarContext";
 
 export const ToolbarContext = React.createContext<ToolbarContext>({
@@ -62,7 +63,7 @@ const usePutSpacerInSelectedIndex = (): (() => void) => {
 
     return useCallback(
         () => {
-            setToolbarItemIdByIndex('__SPACER__', selectedIndex);
+            setToolbarItemIdByIndex(SPACER_ID, selectedIndex);
         },
         [selectedIndex, setToolbarItemIdByIndex]
     );

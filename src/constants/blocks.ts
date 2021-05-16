@@ -1,5 +1,7 @@
 import Block from "../definitions/Block";
 
+export const SPACER_ID = '__spacer__';
+
 const BLOCKS: Block[] = [
     {
         name: 'Acacia Planks',
