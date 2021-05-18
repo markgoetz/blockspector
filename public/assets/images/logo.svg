@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1840px" height="325px" viewBox="0 0 1840 325" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
+    <title>Artboard</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="30.7703833%" y1="18.9992282%" x2="73.2705132%" y2="77.3899282%" id="linearGradient-1">
+            <stop stop-color="#FE69AE" offset="0%"></stop>
+            <stop stop-color="#D6134E" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="0%" y1="0%" x2="100%" y2="100%" id="linearGradient-2">
+            <stop stop-color="#ED2B86" offset="0%"></stop>
+            <stop stop-color="#D6134E" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="100%" y1="23.3267575%" x2="0%" y2="76.1096933%" id="linearGradient-3">
+            <stop stop-color="#D6134E" offset="0%"></stop>
+            <stop stop-color="#5E011D" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="100%" y1="23.3267575%" x2="3.18638796%" y2="74.4278242%" id="linearGradient-4">
+            <stop stop-color="#07918A" offset="0%"></stop>
+            <stop stop-color="#014743" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="30.7703833%" y1="18.9992282%" x2="73.2705132%" y2="77.3899282%" id="linearGradient-5">
+            <stop stop-color="#23C3BB" offset="0%"></stop>
+            <stop stop-color="#07918A" offset="95.792949%"></stop>
+        </linearGradient>
+        <linearGradient x1="0%" y1="0%" x2="100%" y2="100%" id="linearGradient-6">
+            <stop stop-color="#18AFA7" offset="0%"></stop>
+            <stop stop-color="#07918A" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Artboard" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="c" transform="translate(0.000000, 125.000000)">
+            <path d="M149.526584,57.179898 L100,36 L50.4734159,57.179898 L0,38 L100,0 L200,38 L149.526584,57.179898 Z" id="Rectangle-2" fill="url(#linearGradient-1)"></path>
+            <path d="M50.4734159,57.179898 L50,57.3823529 L50,124.064338 L100,145 L100,200 L0,162 L0,38 L50.4734159,57.179898 Z" id="Rectangle-2-Copy" fill="url(#linearGradient-2)"></path>
+            <path d="M150.432792,57.1644609 L150,57.3492565 L150,57.3823529 L141.975309,53.9506173 L150.432792,57.1644609 Z M200,145 L200,200 L100,162 L150,124 L150,123.928029 L200,145 Z" id="Rectangle-2-Copy-2" fill="url(#linearGradient-3)" transform="translate(150.000000, 126.975309) scale(-1, 1) translate(-150.000000, -126.975309) "></path>
+        </g>
+        <g id="u" transform="translate(220.000000, 125.000000)">
+            <path d="M50,19 L50,124.064338 L100,145 L100,200 L0,162 L0,38 L50,19 Z" id="Rectangle-2-Copy" fill="url(#linearGradient-2)"></path>
+            <path d="M150,19 L150,124.064338 L200,145 L200,200 L100,162 L100,38 L150,19 Z" id="Rectangle-2-Copy-2" fill="url(#linearGradient-3)" transform="translate(150.000000, 109.500000) scale(-1, 1) translate(-150.000000, -109.500000) "></path>
+        </g>
+        <g id="b" transform="translate(440.000000, 0.000000)">
+            <path d="M149.526584,182.179898 L100,161 L50.4734159,182.179898 L0,163 L100,125 L200,163 L149.526584,182.179898 Z" id="Rectangle-2" fill="url(#linearGradient-1)"></path>
+            <path d="M50,19 L50,249.064338 L100,270 L100,325 L0,287 L0,0 L50,19 Z" id="Rectangle-2-Copy" fill="url(#linearGradient-2)"></path>
+            <path d="M150.473416,182.179898 L150,182.382353 L150,249.064338 L200,270 L200,325 L100,287 L100,163 L150.473416,182.179898 Z" id="Rectangle-2-Copy-2" fill="url(#linearGradient-3)" transform="translate(150.000000, 244.000000) scale(-1, 1) translate(-150.000000, -244.000000) "></path>
+        </g>
+        <g id="i" transform="translate(660.000000, 56.000000)">
+            <polygon id="Rectangle-2" fill="url(#linearGradient-1)" points="40 69 80 86 40 103 0 86"></polygon>
+            <polygon id="Rectangle-2-Copy-2" fill="url(#linearGradient-3)" transform="translate(60.000000, 177.500000) scale(-1, 1) translate(-60.000000, -177.500000) " points="40 86 80 103 80 269 40 252"></polygon>
+            <polygon id="Rectangle-2-Copy-5" fill="url(#linearGradient-4)" transform="translate(60.000000, 49.500000) scale(-1, 1) translate(-60.000000, -49.500000) " points="40 17 80 34 80 82 40 65"></polygon>
+            <polygon id="Rectangle-2-Copy" fill="url(#linearGradient-2)" points="0 86 40 103 40 269 0 252"></polygon>
+            <polygon id="Rectangle-2-Copy-4" fill="url(#linearGradient-5)" points="40 0 80 17 40 34 0 17"></polygon>
+            <polygon id="Rectangle-2-Copy-3" fill="url(#linearGradient-6)" points="0 17 40 34 40 82 0 65"></polygon>
+        </g>
+        <g id="c" transform="translate(760.000000, 125.000000)">
+            <path d="M149.526584,57.179898 L100,36 L50.4734159,57.179898 L0,38 L100,0 L200,38 L149.526584,57.179898 Z" id="Rectangle-2" fill="url(#linearGradient-1)"></path>
+            <path d="M50.4734159,57.179898 L50,57.3823529 L50,124.064338 L100,145 L100,200 L0,162 L0,38 L50.4734159,57.179898 Z" id="Rectangle-2-Copy" fill="url(#linearGradient-2)"></path>
+            <path d="M150.432792,57.1644609 L150,57.3492565 L150,57.3823529 L141.975309,53.9506173 L150.432792,57.1644609 Z M200,145 L200,200 L100,162 L150,124 L150,123.928029 L200,145 Z" id="Rectangle-2-Copy-2" fill="url(#linearGradient-3)" transform="translate(150.000000, 126.975309) scale(-1, 1) translate(-150.000000, -126.975309) "></path>
+        </g>
+        <g id="o" transform="translate(980.000000, 125.000000)">
+            <path d="M149.526584,57.179898 L100,36 L50.4734159,57.179898 L0,38 L100,0 L200,38 L149.526584,57.179898 Z" id="Rectangle-2" fill="url(#linearGradient-1)"></path>
+            <path d="M50.4734159,57.179898 L50,57.3823529 L50,124.064338 L100,145 L100,200 L0,162 L0,38 L50.4734159,57.179898 Z" id="Rectangle-2-Copy" fill="url(#linearGradient-2)"></path>
+            <path d="M151,57.3823529 L151,124.064338 L200,144.581287 L200,200 L100,162 L100,38 L151.002913,57.3811071 Z" id="Rectangle-2-Copy-2" fill="url(#linearGradient-3)" transform="translate(150.000000, 119.000000) scale(-1, 1) translate(-150.000000, -119.000000) "></path>
+        </g>
+        <g id="n" transform="translate(1420.000000, 125.000000)">
+            <path d="M149.526584,57.179898 L100,36 L50.4734159,57.179898 L0,38 L100,0 L200,38 L149.526584,57.179898 Z" id="Rectangle-2" fill="url(#linearGradient-1)"></path>
+            <path d="M50.4734159,57.179898 L50,57.3823529 L50,181 L0,162 L0,38 L50.4734159,57.179898 Z" id="Rectangle-2-Copy" fill="url(#linearGradient-2)"></path>
+            <path d="M151,57.3823529 L151,181.38 L100,162 L100,38 L151.002913,57.3811071 Z M200,199.639706 L200,200 L199.069856,199.646545 L200,199.639706 Z" id="Rectangle-2-Copy-2" fill="url(#linearGradient-3)" transform="translate(150.000000, 119.000000) scale(-1, 1) translate(-150.000000, -119.000000) "></path>
+        </g>
+        <g id="u" transform="translate(1200.000000, 125.000000)">
+            <path d="M50,19 L50,124.064338 L100,145 L100,200 L0,162 L0,38 L50,19 Z" id="Rectangle-2-Copy" fill="url(#linearGradient-2)"></path>
+            <path d="M150,19 L150,124.064338 L200,145 L200,200 L100,162 L100,38 L150,19 Z" id="Rectangle-2-Copy-2" fill="url(#linearGradient-3)" transform="translate(150.000000, 109.500000) scale(-1, 1) translate(-150.000000, -109.500000) "></path>
+        </g>
+        <g id="t" transform="translate(1640.000000, 0.000000)">
+            <path d="M100,125 L100,161 L50.4734159,182.179898 L0,163 L100,125 Z" id="Rectangle-2" fill="url(#linearGradient-1)"></path>
+            <path d="M50,19 L50,249.064338 L100,270 L100,325 L0,287 L0,0 L50,19 Z" id="Rectangle-2-Copy" fill="url(#linearGradient-2)"></path>
+            <path d="M150,182 L150.473416,182.179898 L150,182.382353 L150,182 Z M100,287 L150,248.329044 L150,249.064338 L200,270 L200,325 L100,287 Z" id="Rectangle-2-Copy-2" fill="url(#linearGradient-3)" transform="translate(150.000000, 251.975309) scale(-1, 1) translate(-150.000000, -251.975309) "></path>
+        </g>
+    </g>
+</svg>
