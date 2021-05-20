@@ -18,5 +18,9 @@ module.exports = {
     rules: {
         "@emotion/jsx-import": "error",
         '@emotion/syntax-preference': [2, "object"],
+        '@typescript-eslint/no-unused-vars': [
+            2,
+            { 'vars': 'all', 'args': 'all', 'varsIgnorePattern': '^jsx$' }
+        ]
     }
 };
