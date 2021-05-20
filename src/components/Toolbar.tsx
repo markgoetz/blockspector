@@ -26,13 +26,15 @@ const Toolbar: React.FC = () => {
         <menu css={CONTAINER_STYLE}>
             <ul css={LIST_STYLE}>
                 {toolbarContext.toolbar.map((blockId, index) => {
-                    const block = BLOCKS.find(b => b.id === blockId) ?? null;
+                    const block = BLOCKS.find((b) => b.id === blockId) ?? null;
 
                     return (
                         <li key={index}>
                             <BlockButton
                                 block={block}
-                                selected={index === toolbarContext.selectedIndex}
+                                selected={
+                                    index === toolbarContext.selectedIndex
+                                }
                                 index={index}
                                 onClick={() => setIndex(index)}
                             />

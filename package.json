@@ -22,7 +22,7 @@
         "build": "snowpack build --polyfill-node",
         "test": "web-test-runner \"src/**/*.test.tsx\"",
         "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx}\"",
-        "lint": "yarn lint:prettier && yarn lint:eslint && yarn lint:styles",
+        "lint": "yarn format && yarn lint:prettier && yarn lint:eslint && yarn lint:styles",
         "lint:eslint": "eslint . --ext .ts,.tsx --fix",
         "lint:prettier": "prettier --check \"src/**/*.{js,jsx,ts,tsx}\"",
         "lint:styles": "stylelint \"**/*.css\" --fix"
@@ -48,7 +48,6 @@
         "eslint-plugin-react-hooks": "^4.2.0",
         "prettier": "^2.2.1",
         "snowpack": "^3.3.7",
-        "stylelint": "^13.13.1",
         "stylelint-config-standard": "^22.0.0"
     }
 }

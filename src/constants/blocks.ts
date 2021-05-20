@@ -1,4 +1,4 @@
-import Block from "../definitions/Block";
+import Block from '../definitions/Block';
 
 export const SPACER_ID = '__spacer__';
 

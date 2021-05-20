@@ -4,13 +4,13 @@ import React, { useState } from 'react';
 import { COLORS, SIZES } from '../styles/variables';
 
 export type Tab = {
-    id: string,
-    title: string,
-    contents: React.ReactElement,
+    id: string;
+    title: string;
+    contents: React.ReactElement;
 };
 
 type Props = {
-    tabs: Tab[],
+    tabs: Tab[];
 };
 
 const CONTAINER_STYLE: CSSObject = {
@@ -18,12 +18,12 @@ const CONTAINER_STYLE: CSSObject = {
     borderStyle: 'solid',
     borderColor: COLORS.GRAY.MEDIUM,
     backgroundColor: COLORS.GRAY.LIGHT,
-}
+};
 
 const TAB_LIST_STYLE: CSSObject = {
     display: 'flex',
     justifyContent: 'stretch',
-}
+};
 
 const TAB_STYLE: CSSObject = {
     flexGrow: 1,
@@ -59,18 +59,24 @@ const TabPanel: React.FC<Props> = ({ tabs }) => {
                     {tabs.map((tab, index) => (
                         <li
                             key={tab.id}
-                            css={index === selectedIndex ? SELECTED_TAB_STYLE : TAB_STYLE}
+                            css={
+                                index === selectedIndex
+                                    ? SELECTED_TAB_STYLE
+                                    : TAB_STYLE
+                            }
                         >
-                            <button type="button" css={BUTTON_STYLE} onClick={() => setSelectedIndex(index)}>
+                            <button
+                                type="button"
+                                css={BUTTON_STYLE}
+                                onClick={() => setSelectedIndex(index)}
+                            >
                                 {tab.title}
                             </button>
                         </li>
                     ))}
                 </ul>
             </nav>
-            <div css={PANEL_STYLE}>
-                {tabs[selectedIndex].contents}
-            </div>
+            <div css={PANEL_STYLE}>{tabs[selectedIndex].contents}</div>
         </div>
     );
 };

@@ -13,13 +13,17 @@ const BlockList: React.FC<Props> = ({ blocks }) => {
 
     return (
         <group ref={ref}>
-            {blocks.map(block => {
-                return block.blockId !== SPACER_ID
-                    ? <Suspense fallback={null} key={block.uuid}><PlacedBlock block={block} /></Suspense>
-                    : <Spacer position={block.position} key={block.uuid} />;
+            {blocks.map((block) => {
+                return block.blockId !== SPACER_ID ? (
+                    <Suspense fallback={null} key={block.uuid}>
+                        <PlacedBlock block={block} />
+                    </Suspense>
+                ) : (
+                    <Spacer position={block.position} key={block.uuid} />
+                );
             })}
         </group>
-    )
+    );
 };
 
 export default BlockList;

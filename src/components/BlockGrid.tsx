@@ -17,7 +17,7 @@ const BlockGrid: React.FC = () => {
 
     return (
         <ul css={GRID_STYLE}>
-            {BLOCKS.map(block => (
+            {BLOCKS.map((block) => (
                 <li key={block.id}>
                     <BlockButton
                         block={block}

@@ -17,7 +17,7 @@ const SECOND_BLOCK: PositionedBlock = {
     position: new Vector3(1, 0, 0),
     orientation: 'up',
     uuid: uuidv4(),
-}
+};
 
 const BuildContext = React.createContext<BuildContext>({
     blocks: [INITIAL_BLOCK, SECOND_BLOCK],
@@ -34,20 +34,17 @@ const BuildProvider: React.FC = (props) => {
     );
 };
 
-const useGetBlocks = (): () => PositionedBlock[] => {
+const useGetBlocks = (): (() => PositionedBlock[]) => {
     const context = useContext(BuildContext);
     const { blocks } = context;
-    
-    return useCallback(
-        () => blocks,
-        [blocks],
-    );
+
+    return useCallback(() => blocks, [blocks]);
 };
 
 const useAddBlock = (): ((blockId: string, position: Vector3) => void) => {
     const context = useContext(BuildContext);
     const { blocks, setBlocks } = context;
-    
+
     return useCallback(
         (blockId: string, position: Vector3) => {
             const addedBlock: PositionedBlock = {
@@ -66,10 +63,10 @@ const useAddBlock = (): ((blockId: string, position: Vector3) => void) => {
 const useRemoveBlock = (): ((uuId: string) => void) => {
     const context = useContext(BuildContext);
     const { blocks, setBlocks } = context;
-    
+
     return useCallback(
         (uuid: string) => {
-            setBlocks(blocks.filter(block => block.uuid !== uuid));
+            setBlocks(blocks.filter((block) => block.uuid !== uuid));
         },
         [blocks, setBlocks],
     );
@@ -77,8 +74,4 @@ const useRemoveBlock = (): ((uuId: string) => void) => {
 
 export default BuildProvider;
 
-export {
-    useGetBlocks,
-    useAddBlock,
-    useRemoveBlock,
-};
+export { useGetBlocks, useAddBlock, useRemoveBlock };

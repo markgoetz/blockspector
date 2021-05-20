@@ -8,9 +8,12 @@ const FOOTER_STYLE: CSSObject = {
 };
 
 const Footer: React.FC = () => {
-    return <footer css={FOOTER_STYLE}>
-        Copyright &copy; <a href="https://markandrewgoetz.com">Mark Goetz</a>, {year}
-    </footer>;
+    return (
+        <footer css={FOOTER_STYLE}>
+            Copyright &copy;{' '}
+            <a href="https://markandrewgoetz.com">Mark Goetz</a>, {year}
+        </footer>
+    );
 };
 
 export default Footer;

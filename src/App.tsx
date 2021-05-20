@@ -22,7 +22,6 @@ const app: CSSObject = {
 };
 
 const App: React.FC = () => {
-    
     return (
         <div css={app}>
             <Global styles={RESET} />
@@ -34,7 +33,11 @@ const App: React.FC = () => {
                     sidebar={<Sidebar />}
                     toolbar={<Toolbar />}
                     footer={<Footer />}
-                    canvas={<Suspense fallback={null}><BlockCanvas /></Suspense>}
+                    canvas={
+                        <Suspense fallback={null}>
+                            <BlockCanvas />
+                        </Suspense>
+                    }
                 />
             </ToolbarProvider>
         </div>

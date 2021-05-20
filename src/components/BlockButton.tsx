@@ -15,21 +15,26 @@ const INDEX_STYLE: CSSObject = {
 };
 
 type Props = {
-    block: Block | null,
-    index?: number,
-    onClick: () => void,
-    selected: boolean,
+    block: Block | null;
+    index?: number;
+    onClick: () => void;
+    selected: boolean;
 };
 
 const BlockButton: React.FC<Props> = ({ block, index, onClick, selected }) => {
     const buttonStyle: CSSObject = {
         width: SIZES.QUADRUPLE,
         height: SIZES.QUADRUPLE,
-        backgroundImage: block != null ? `url("/assets/textures/${block.imageUrl}")` : undefined,
+        backgroundImage:
+            block != null
+                ? `url("/assets/textures/${block.imageUrl}")`
+                : undefined,
         backgroundSize: 3 * SIZES.BASE,
         backgroundRepeat: 'no-repeat',
         backgroundPosition: '50% 50%',
-        boxShadow: selected ? `0 0 0 ${SIZES.QUARTER}px ${COLORS.PRIMARY.BRIGHT} inset` : `0 0 0 1px ${COLORS.GRAY.DARK} inset`,
+        boxShadow: selected
+            ? `0 0 0 ${SIZES.QUARTER}px ${COLORS.PRIMARY.BRIGHT} inset`
+            : `0 0 0 1px ${COLORS.GRAY.DARK} inset`,
         position: 'relative',
     };
 

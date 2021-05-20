@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react';
+import React from 'react';
 import { TextureLoader } from 'three/src/loaders/TextureLoader';
 import { useLoader } from '@react-three/fiber';
 import PositionedBlock from '../definitions/PositionedBlock';
@@ -10,7 +10,7 @@ type Props = {
 
 const PlacedBlock: React.FC<Props> = ({ block }) => {
     const { position, blockId } = block;
-    const referenceBlock = BLOCKS.find(b => b.id === blockId);
+    const referenceBlock = BLOCKS.find((b) => b.id === blockId);
     if (referenceBlock == null) {
         throw new Error(`Unable to find block ${blockId}.`);
     }
@@ -19,17 +19,11 @@ const PlacedBlock: React.FC<Props> = ({ block }) => {
     const [colorMap] = useLoader(TextureLoader, [referenceUrl]);
 
     return (
-        <mesh
-            visible
-            position={[position.x, position.y, position.z]}
-        >
+        <mesh visible position={[position.x, position.y, position.z]}>
             <boxGeometry args={[1, 1, 1]} />
-            <meshBasicMaterial
-                attach="material"
-                map={colorMap}
-            />
+            <meshBasicMaterial attach="material" map={colorMap} />
         </mesh>
-    )
+    );
 };
 
 export default PlacedBlock;

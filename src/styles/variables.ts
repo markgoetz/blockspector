@@ -24,7 +24,7 @@ export const COLORS = {
     PRIMARY: {
         BRIGHT: '#07918A',
         LIGHT: '#C4F1EF',
-        LIGHTEST: '#F0FFFE'
+        LIGHTEST: '#F0FFFE',
     },
     SECONDARY: '#D6134E',
 };

@@ -1,4 +1,4 @@
-import PositionedBlock from "../../definitions/PositionedBlock";
+import PositionedBlock from '../../definitions/PositionedBlock';
 
 type BuildContext = {
     blocks: PositionedBlock[];

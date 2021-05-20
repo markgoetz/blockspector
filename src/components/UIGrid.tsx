@@ -4,11 +4,11 @@ import React from 'react';
 import { SIZES } from '../styles/variables';
 
 type Props = {
-    header: React.ReactNode,
-    sidebar: React.ReactNode,
-    toolbar: React.ReactNode,
-    footer: React.ReactNode,
-    canvas: React.ReactNode,
+    header: React.ReactNode;
+    sidebar: React.ReactNode;
+    toolbar: React.ReactNode;
+    footer: React.ReactNode;
+    canvas: React.ReactNode;
 };
 
 const GRID_STYLE: CSSObject = {
@@ -48,7 +48,13 @@ const FOOTER_STYLE: CSSObject = {
     gridArea: 'footer',
 };
 
-const UIGrid: React.FC<Props> = ({ header, sidebar, canvas, toolbar, footer }) => {
+const UIGrid: React.FC<Props> = ({
+    header,
+    sidebar,
+    canvas,
+    toolbar,
+    footer,
+}) => {
     return (
         <div css={GRID_STYLE}>
             <div css={HEADER_STYLE}>{header}</div>
