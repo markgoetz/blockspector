@@ -7,8 +7,8 @@ const Header: React.FC = () => {
                 <img
                     src="/assets/images/logo.svg"
                     alt="cubicount"
-                    width="368"
-                    height="65"
+                    width="359"
+                    height="64"
                 />
             </h1>
             <h2>A block placement preview tool for Minecraft</h2>
