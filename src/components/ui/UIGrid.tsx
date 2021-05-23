@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { CSSObject, jsx } from '@emotion/react';
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { DELETE_INDEX } from '../../constants/blocks';
 import { useUpdateSelectedIndex } from '../../context/ToolbarContext';
 import { SIZES } from '../../styles/variables';
@@ -60,8 +60,13 @@ const UIGrid: React.FC<Props> = ({
     footer,
 }) => {
     const updateSelectedIndex = useUpdateSelectedIndex();
+    const ref = useRef<HTMLDivElement>(null);
 
-    const onKeyup = (e: React.KeyboardEvent) => {
+    useEffect(() => {
+        ref.current?.focus();
+    }, []);
+
+    const onKeyDown = (e: React.KeyboardEvent) => {
         if (NUMBER_KEYS.includes(e.key)) {
             updateSelectedIndex(NUMBER_KEYS.indexOf(e.key));
         } else if (e.key === 'Delete' || e.key === 'Backspace') {
@@ -69,14 +74,13 @@ const UIGrid: React.FC<Props> = ({
         }
     };
 
-
     return (
-        <div css={GRID_STYLE} onKeyUp={onKeyup}>
-            <div css={HEADER_STYLE}>{header}</div>
-            <div css={SIDEBAR_STYLE}>{sidebar}</div>
-            <div css={CANVAS_STYLE}>{canvas}</div>
-            <div css={TOOLBAR_STYLE}>{toolbar}</div>
-            <div css={FOOTER_STYLE}>{footer}</div>
+        <div css={GRID_STYLE} onKeyDown={onKeyDown} ref={ref} tabIndex={-1}>
+            <section css={HEADER_STYLE}>{header}</section>
+            <section css={SIDEBAR_STYLE}>{sidebar}</section>
+            <section css={CANVAS_STYLE}>{canvas}</section>
+            <section css={TOOLBAR_STYLE}>{toolbar}</section>
+            <section css={FOOTER_STYLE}>{footer}</section>
         </div>
     );
 };

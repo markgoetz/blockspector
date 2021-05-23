@@ -23,7 +23,7 @@ const app: CSSObject = {
 
 const App: React.FC = () => {
     return (
-        <div css={app}>
+        <main css={app}>
             <Global styles={RESET} />
             <Global styles={FONT_FACE} />
             <Global styles={GLOBAL_STYLES} />
@@ -40,7 +40,7 @@ const App: React.FC = () => {
                     }
                 />
             </ToolbarProvider>
-        </div>
+        </main>
     );
 };
 
