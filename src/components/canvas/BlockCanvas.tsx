@@ -3,11 +3,9 @@ import { CSSObject, jsx } from '@emotion/react';
 import React, { useRef, useState } from 'react';
 import { Vector3 } from 'three';
 import { Canvas, extend, useFrame, useThree, ThreeEvent } from '@react-three/fiber';
-import { useContextBridge } from '@react-three/drei';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 
 import {
-    ToolbarContext,
     useSelectedBlockId,
 } from '../../context/ToolbarContext';
 import BlockList from './BlockList';
@@ -35,7 +33,10 @@ const BlockCanvasInternal: React.FC<InternalProps> = ({ blocks, onBlockClick }) 
     return (
         <React.Fragment>
             <orbitControls ref={controls} args={[camera, domElement]} />
-            <BlockList blocks={blocks} onBlockClick={onBlockClick} />
+            <BlockList
+                blocks={blocks}
+                onBlockClick={onBlockClick}
+            />
         </React.Fragment>
     );
 };
@@ -45,7 +46,6 @@ const CANVAS_STYLE: CSSObject = {
 };
 
 const BlockCanvas: React.FC = () => {
-    const ContextBridge = useContextBridge(ToolbarContext);
     const selectedBlockId = useSelectedBlockId();
     const [blocks, setBlocks] = useState<PositionedBlock[]>([]);
 
@@ -81,9 +81,10 @@ const BlockCanvas: React.FC = () => {
     return (
         <div onClick={onCanvasClick} css={CANVAS_STYLE}>
             <Canvas id="block-canvas">
-                <ContextBridge>
-                    <BlockCanvasInternal blocks={blocks} onBlockClick={onBlockClick} />
-                </ContextBridge>
+                <BlockCanvasInternal
+                    blocks={blocks}
+                    onBlockClick={onBlockClick}
+                />
             </Canvas>
         </div>
     );

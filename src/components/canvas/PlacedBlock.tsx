@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { TextureLoader } from 'three/src/loaders/TextureLoader';
 import { useLoader, ThreeEvent } from '@react-three/fiber';
 import PositionedBlock from '../../definitions/PositionedBlock';
@@ -8,11 +8,12 @@ import { COLORS } from '../../styles/variables';
 type Props = {
     block: PositionedBlock;
     onClick: (e: ThreeEvent<MouseEvent>) => void;
+    isHighlighted: boolean;
+    onMouseOver: () => void;
 };
 
-const PlacedBlock: React.FC<Props> = ({ block, onClick }) => {
+const PlacedBlock: React.FC<Props> = ({ block, onClick, isHighlighted, onMouseOver }) => {
     const { position, blockId } = block;
-    const [isHighlighted, setIsHighlighted] = useState(false);
 
     const referenceBlock = BLOCKS.find((b) => b.id === blockId);
     if (referenceBlock == null) {
@@ -24,12 +25,11 @@ const PlacedBlock: React.FC<Props> = ({ block, onClick }) => {
 
     const onPointerOver = (e: ThreeEvent<PointerEvent>) => {
         e.stopPropagation();
-        setIsHighlighted(true);
+        onMouseOver();
     };
 
     const onPointerLeave = (e: ThreeEvent<PointerEvent>) => {
         e.stopPropagation();
-        setIsHighlighted(false);
     };
 
     const color = isHighlighted ? COLORS.SECONDARY : 'gray';
