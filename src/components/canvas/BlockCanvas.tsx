@@ -68,7 +68,7 @@ const BlockCanvas: React.FC = () => {
 
     const onBlockClick = (
         e: ThreeEvent<MouseEvent>,
-        clickedBlock: PositionedBlock,
+        block: PositionedBlock,
     ) => {
         e.stopPropagation();
 
@@ -81,7 +81,7 @@ const BlockCanvas: React.FC = () => {
         }
 
         if (selectedBlockId === DELETE_ID) {
-            setBlocks(blocks.filter((b) => b.uuid !== clickedBlock.uuid));
+            setBlocks(blocks.filter((b) => b.uuid !== block.uuid));
             return;
         }
 
@@ -96,8 +96,8 @@ const BlockCanvas: React.FC = () => {
             return;
         }
 
-        const block = createBlock(selectedBlockId as string, newPosition);
-        setBlocks([...blocks, block]);
+        const newBlock = createBlock(selectedBlockId as string, newPosition);
+        setBlocks([...blocks, newBlock]);
     };
 
     return (
