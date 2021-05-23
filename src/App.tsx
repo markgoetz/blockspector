@@ -1,12 +1,12 @@
 /** @jsx jsx */
 import { CSSObject, Global, jsx } from '@emotion/react';
 import React, { Suspense } from 'react';
-import BlockCanvas from './components/BlockCanvas';
-import Footer from './components/Footer';
-import Header from './components/Header';
-import Sidebar from './components/Sidebar';
-import Toolbar from './components/Toolbar';
-import UIGrid from './components/UIGrid';
+import BlockCanvas from './components/canvas/BlockCanvas';
+import Footer from './components/ui/Footer';
+import Header from './components/ui/Header';
+import Sidebar from './components/ui/Sidebar';
+import Toolbar from './components/ui/Toolbar';
+import UIGrid from './components/ui/UIGrid';
 import ToolbarProvider from './context/ToolbarContext';
 import FONT_FACE from './styles/fonts';
 import GLOBAL_STYLES from './styles/global';

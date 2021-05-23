@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { CSSObject, jsx } from '@emotion/react';
-import { COLORS, SIZES } from '../styles/variables';
+import { COLORS, SIZES } from '../../styles/variables';
 
 const INDEX_STYLE: CSSObject = {
     position: 'absolute',
@@ -20,7 +20,12 @@ type Props = {
     selected: boolean;
 };
 
-const BlockButton: React.FC<Props> = ({ imageUrl, index, onClick, selected }) => {
+const BlockButton: React.FC<Props> = ({
+    imageUrl,
+    index,
+    onClick,
+    selected,
+}) => {
     const buttonStyle: CSSObject = {
         width: SIZES.QUADRUPLE,
         height: SIZES.QUADRUPLE,

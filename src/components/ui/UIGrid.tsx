@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { CSSObject, jsx } from '@emotion/react';
 import React from 'react';
-import { SIZES } from '../styles/variables';
+import { SIZES } from '../../styles/variables';
 
 type Props = {
     header: React.ReactNode;

@@ -1,11 +1,14 @@
 /** @jsx jsx */
 import { CSSObject, jsx } from '@emotion/react';
 import React, { useContext } from 'react';
-import { SIZES } from '../styles/variables';
-import BLOCKS from '../constants/blocks';
-import { ToolbarContext } from '../context/ToolbarContext';
-import BlockButton from './BlockButton';
-import { DELETE_INDEX, SPACER_INDEX } from '../constants/indexNumbers';
+import { SIZES } from '../../styles/variables';
+import BLOCKS from '../../constants/blocks';
+import {
+    ToolbarContext,
+    useUpdateSelectedIndex,
+} from '../../context/ToolbarContext';
+import BlockButton from '../ui/BlockButton';
+import { DELETE_INDEX, SPACER_INDEX } from '../../constants/blocks';
 
 const CONTAINER_STYLE: CSSObject = {
     display: 'flex',
@@ -23,9 +26,10 @@ const LIST_STYLE: CSSObject = {
 
 const Toolbar: React.FC = () => {
     const toolbarContext = useContext(ToolbarContext);
+    const updateSelectedIndex = useUpdateSelectedIndex();
 
     const setIndex = (index: number) => {
-        toolbarContext.setSelectedIndex(index);
+        updateSelectedIndex(index);
     };
 
     return (
@@ -40,7 +44,10 @@ const Toolbar: React.FC = () => {
             <ul css={LIST_STYLE}>
                 {toolbarContext.toolbar.map((blockId, index) => {
                     const block = BLOCKS.find((b) => b.id === blockId) ?? null;
-                    const imageUrl = block != null ? `/assets/textures/${block?.imageUrl}` : '';
+                    const imageUrl =
+                        block != null
+                            ? `/assets/textures/${block?.imageUrl}`
+                            : null;
 
                     return (
                         <li key={index}>

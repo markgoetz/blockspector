@@ -1,18 +1,16 @@
-import React, { Suspense, useRef } from 'react';
+import React, { Suspense } from 'react';
 import Spacer from './Spacer';
 import PlacedBlock from './PlacedBlock';
-import PositionedBlock from '../definitions/PositionedBlock';
-import { SPACER_ID } from '../constants/blocks';
+import PositionedBlock from '../../definitions/PositionedBlock';
+import { SPACER_ID } from '../../constants/blocks';
 
 type Props = {
     blocks: PositionedBlock[];
 };
 
 const BlockList: React.FC<Props> = ({ blocks }) => {
-    const ref = useRef();
-
     return (
-        <group ref={ref}>
+        <group>
             {blocks.map((block) => {
                 return block.blockId !== SPACER_ID ? (
                     <Suspense fallback={null} key={block.uuid}>

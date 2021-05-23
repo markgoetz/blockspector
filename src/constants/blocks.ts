@@ -1,6 +1,9 @@
 import Block from '../definitions/Block';
 
+export const SPACER_INDEX = -1;
+export const DELETE_INDEX = 9;
 export const SPACER_ID = '__spacer__';
+export const DELETE_ID = '__delete__';
 
 const BLOCKS: Block[] = [
     {

@@ -1,9 +1,9 @@
 /** @jsx jsx */
 import { CSSObject, jsx } from '@emotion/react';
 import React from 'react';
-import { SIZES } from '../styles/variables';
-import BLOCKS from '../constants/blocks';
-import { useUpdateToolbarItem } from '../context/ToolbarContext';
+import { SIZES } from '../../styles/variables';
+import BLOCKS from '../../constants/blocks';
+import { useUpdateToolbarItem } from '../../context/ToolbarContext';
 import BlockButton from './BlockButton';
 
 const GRID_STYLE: CSSObject = {

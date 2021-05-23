@@ -1,6 +1,10 @@
 import React, { useCallback, useContext, useState } from 'react';
-import { DELETE_INDEX, SPACER_INDEX } from '../../constants/indexNumbers';
-import { SPACER_ID } from '../../constants/blocks';
+import {
+    DELETE_INDEX,
+    SPACER_INDEX,
+    SPACER_ID,
+    DELETE_ID,
+} from '../../constants/blocks';
 import ToolbarContext from './ToolbarContext';
 
 export const ToolbarContext = React.createContext<ToolbarContext>({
@@ -48,6 +52,7 @@ const useUpdateSelectedIndex = (): ((index: number) => void) => {
 
     return useCallback(
         (index: number) => {
+            console.log(index);
             setSelectedIndex(index);
         },
         [setSelectedIndex],
@@ -60,7 +65,10 @@ const useUpdateToolbarItem = (): ((itemId: string) => void) => {
 
     return useCallback(
         (itemId: string) => {
-            if (selectedIndex !== SPACER_INDEX && selectedIndex !== DELETE_INDEX) {
+            if (
+                selectedIndex !== SPACER_INDEX &&
+                selectedIndex !== DELETE_INDEX
+            ) {
                 setToolbarItemIdByIndex(itemId, selectedIndex);
             }
         },
@@ -77,19 +85,24 @@ const usePutSpacerInSelectedIndex = (): (() => void) => {
     }, [selectedIndex, setToolbarItemIdByIndex]);
 };
 
-const useGetSelectedBlockId = (): (() => string | null) => {
+const useSelectedBlockId = (): string | null => {
     const context = useContext(ToolbarContext);
     const { toolbar, selectedIndex } = context;
+    console.log(selectedIndex);
 
-    return useCallback(() => {
+    if (selectedIndex === DELETE_INDEX) {
+        return DELETE_ID;
+    } else if (selectedIndex === SPACER_INDEX) {
+        return SPACER_ID;
+    } else {
         return toolbar[selectedIndex] ?? null;
-    }, [toolbar, selectedIndex]);
+    }
 };
 
 export default ToolbarProvider;
 
 export {
-    useGetSelectedBlockId,
+    useSelectedBlockId,
     useUpdateSelectedIndex,
     usePutSpacerInSelectedIndex,
     useUpdateToolbarItem,

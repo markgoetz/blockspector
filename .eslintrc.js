@@ -19,8 +19,8 @@ module.exports = {
         "@emotion/jsx-import": "error",
         '@emotion/syntax-preference': [2, "object"],
         '@typescript-eslint/no-unused-vars': [
-            2,
-            { 'vars': 'all', 'args': 'all', 'varsIgnorePattern': '^jsx$' }
+            1,
+            { 'vars': 'all', 'args': 'none', 'varsIgnorePattern': '^jsx$' }
         ]
     }
 };

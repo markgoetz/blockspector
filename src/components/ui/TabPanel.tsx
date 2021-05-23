@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { CSSObject, jsx } from '@emotion/react';
 import React, { useState } from 'react';
-import { COLORS, SIZES } from '../styles/variables';
+import { COLORS, SIZES } from '../../styles/variables';
 
 export type Tab = {
     id: string;

@@ -1,5 +1,5 @@
 import React from 'react';
-import { COLORS } from '../styles/variables';
+import { COLORS } from '../../styles/variables';
 import { Vector3 } from 'three';
 
 type Props = {
