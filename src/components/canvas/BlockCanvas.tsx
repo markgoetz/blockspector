@@ -63,6 +63,8 @@ const BlockCanvas: React.FC = () => {
     };
 
     const onBlockClick = (e: ThreeEvent<MouseEvent>, clickedBlock: PositionedBlock) => {
+        e.stopPropagation();
+
         if (selectedBlockId == null) {
             return;
         }
