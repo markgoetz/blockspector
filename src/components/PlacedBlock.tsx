@@ -19,7 +19,7 @@ const PlacedBlock: React.FC<Props> = ({ block }) => {
     const [colorMap] = useLoader(TextureLoader, [referenceUrl]);
 
     return (
-        <mesh visible position={[position.x, position.y, position.z]}>
+        <mesh visible position={[position.x, position.y, position.z]} onPointerMove={console.log}>
             <boxGeometry args={[1, 1, 1]} />
             <meshBasicMaterial attach="material" map={colorMap} />
         </mesh>

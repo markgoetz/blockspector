@@ -40,11 +40,12 @@ const Toolbar: React.FC = () => {
             <ul css={LIST_STYLE}>
                 {toolbarContext.toolbar.map((blockId, index) => {
                     const block = BLOCKS.find((b) => b.id === blockId) ?? null;
+                    const imageUrl = block != null ? `/assets/textures/${block?.imageUrl}` : '';
 
                     return (
                         <li key={index}>
                             <BlockButton
-                                imageUrl={`/assets/textures/${block?.imageUrl}`}
+                                imageUrl={imageUrl}
                                 selected={
                                     index === toolbarContext.selectedIndex
                                 }

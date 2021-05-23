@@ -14,7 +14,7 @@ const INDEX_STYLE: CSSObject = {
 };
 
 type Props = {
-    imageUrl: string;
+    imageUrl: string | null;
     index?: number;
     onClick: () => void;
     selected: boolean;
@@ -24,7 +24,7 @@ const BlockButton: React.FC<Props> = ({ imageUrl, index, onClick, selected }) =>
     const buttonStyle: CSSObject = {
         width: SIZES.QUADRUPLE,
         height: SIZES.QUADRUPLE,
-        backgroundImage: `url("${imageUrl}")`,
+        backgroundImage: imageUrl != null ? `url("${imageUrl}")` : undefined,
         backgroundSize: 3 * SIZES.BASE,
         backgroundRepeat: 'no-repeat',
         backgroundPosition: '50% 50%',

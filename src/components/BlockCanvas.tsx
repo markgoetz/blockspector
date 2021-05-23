@@ -31,7 +31,7 @@ const BlockCanvasInternal: React.FC = () => {
 
 const BlockCanvas: React.FC = () => {
     return (
-        <Canvas>
+        <Canvas id="block-canvas">
             <BlockCanvasInternal />
         </Canvas>
     );
