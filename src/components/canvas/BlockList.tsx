@@ -7,7 +7,7 @@ import { ThreeEvent } from '@react-three/fiber';
 
 type Props = {
     blocks: PositionedBlock[];
-    onBlockClick: (e: ThreeEvent<PointerEvent>) => void;
+    onBlockClick: (e: ThreeEvent<MouseEvent>) => void;
 };
 
 const BlockList: React.FC<Props> = ({ blocks, onBlockClick }) => {

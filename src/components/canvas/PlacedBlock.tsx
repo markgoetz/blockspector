@@ -7,7 +7,7 @@ import { COLORS } from '../../styles/variables';
 
 type Props = {
     block: PositionedBlock;
-    onClick: (e: ThreeEvent<PointerEvent>) => void;
+    onClick: (e: ThreeEvent<MouseEvent>) => void;
 };
 
 const PlacedBlock: React.FC<Props> = ({ block, onClick }) => {
@@ -22,11 +22,13 @@ const PlacedBlock: React.FC<Props> = ({ block, onClick }) => {
     const referenceUrl = `/assets/textures/${referenceBlock.textureUrl}`;
     const [colorMap] = useLoader(TextureLoader, [referenceUrl]);
 
-    const onPointerOver = () => {
+    const onPointerOver = (e: ThreeEvent<PointerEvent>) => {
+        e.stopPropagation();
         setIsHighlighted(true);
     };
 
-    const onPointerLeave = () => {
+    const onPointerLeave = (e: ThreeEvent<PointerEvent>) => {
+        e.stopPropagation();
         setIsHighlighted(false);
     };
 
@@ -38,7 +40,7 @@ const PlacedBlock: React.FC<Props> = ({ block, onClick }) => {
             position={[position.x, position.y, position.z]}
             onPointerOver={onPointerOver}
             onPointerLeave={onPointerLeave}
-            onPointerUp={onClick}
+            onClick={onClick}
         >
             <boxGeometry args={[1, 1, 1]} />
             <meshBasicMaterial attach="material" map={colorMap} color={color} />
