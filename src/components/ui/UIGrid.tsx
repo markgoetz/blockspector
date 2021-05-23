@@ -37,7 +37,7 @@ const SIDEBAR_STYLE: CSSObject = {
 
 const CANVAS_STYLE: CSSObject = {
     gridColumn: '1 / span 2',
-    gridRow: '2 / span 1',
+    gridRow: '1 / span 4',
 };
 
 const TOOLBAR_STYLE: CSSObject = {
