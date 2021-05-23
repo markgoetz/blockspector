@@ -2,18 +2,17 @@ import React, { useState } from 'react';
 import { TextureLoader } from 'three/src/loaders/TextureLoader';
 import { useLoader, ThreeEvent } from '@react-three/fiber';
 import PositionedBlock from '../../definitions/PositionedBlock';
-import BLOCKS, { DELETE_ID } from '../../constants/blocks';
-import { useSelectedBlockId } from '../../context/ToolbarContext';
+import BLOCKS from '../../constants/blocks';
 import { COLORS } from '../../styles/variables';
 
 type Props = {
     block: PositionedBlock;
+    onClick: (e: ThreeEvent<PointerEvent>) => void;
 };
 
-const PlacedBlock: React.FC<Props> = ({ block }) => {
+const PlacedBlock: React.FC<Props> = ({ block, onClick }) => {
     const { position, blockId } = block;
     const [isHighlighted, setIsHighlighted] = useState(false);
-    const selectedId = useSelectedBlockId();
 
     const referenceBlock = BLOCKS.find((b) => b.id === blockId);
     if (referenceBlock == null) {
@@ -23,19 +22,15 @@ const PlacedBlock: React.FC<Props> = ({ block }) => {
     const referenceUrl = `/assets/textures/${referenceBlock.textureUrl}`;
     const [colorMap] = useLoader(TextureLoader, [referenceUrl]);
 
-    const onPointerOver = (e: ThreeEvent<PointerEvent>) => {
-        if (selectedId === DELETE_ID) {
-            setIsHighlighted(true);
-        } else {
-            // highlight the face
-        }
+    const onPointerOver = () => {
+        setIsHighlighted(true);
     };
 
     const onPointerLeave = () => {
         setIsHighlighted(false);
     };
 
-    const color = isHighlighted ? COLORS.SECONDARY : 'white';
+    const color = isHighlighted ? COLORS.SECONDARY : 'gray';
 
     return (
         <mesh
@@ -43,6 +38,7 @@ const PlacedBlock: React.FC<Props> = ({ block }) => {
             position={[position.x, position.y, position.z]}
             onPointerOver={onPointerOver}
             onPointerLeave={onPointerLeave}
+            onPointerUp={onClick}
         >
             <boxGeometry args={[1, 1, 1]} />
             <meshBasicMaterial attach="material" map={colorMap} color={color} />

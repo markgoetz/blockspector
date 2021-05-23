@@ -1,10 +1,10 @@
 /** @jsx jsx */
 import { CSSObject, jsx } from '@emotion/react';
 import React, { useRef, useState } from 'react';
-import { Canvas, extend, useFrame, useThree } from '@react-three/fiber';
+import { Vector3 } from 'three';
+import { Canvas, extend, useFrame, useThree, ThreeEvent } from '@react-three/fiber';
 import { useContextBridge } from '@react-three/drei';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
-import { Vector3 } from 'three';
 
 import {
     ToolbarContext,
@@ -19,9 +19,10 @@ extend({ OrbitControls });
 
 type InternalProps = {
     blocks: PositionedBlock[];
+    onBlockClick: (e: ThreeEvent<PointerEvent>) => void;
 };
 
-const BlockCanvasInternal: React.FC<InternalProps> = ({ blocks }) => {
+const BlockCanvasInternal: React.FC<InternalProps> = ({ blocks, onBlockClick }) => {
     const controls = useRef<OrbitControls>();
     const {
         camera,
@@ -34,7 +35,7 @@ const BlockCanvasInternal: React.FC<InternalProps> = ({ blocks }) => {
     return (
         <React.Fragment>
             <orbitControls ref={controls} args={[camera, domElement]} />
-            <BlockList blocks={blocks} />
+            <BlockList blocks={blocks} onBlockClick={onBlockClick} />
         </React.Fragment>
     );
 };
@@ -48,22 +49,34 @@ const BlockCanvas: React.FC = () => {
     const selectedBlockId = useSelectedBlockId();
     const [blocks, setBlocks] = useState<PositionedBlock[]>([]);
 
+    const isDeleteSelected = selectedBlockId === DELETE_ID;
+    const isBlockSelected = !isDeleteSelected && selectedBlockId != null;
+
     const onCanvasClick = () => {
         if (
-            selectedBlockId != null &&
-            selectedBlockId !== DELETE_ID &&
+            isBlockSelected &&
             blocks.length === 0
         ) {
-            const block = createBlock(selectedBlockId, new Vector3(0, 0, 0));
+            const block = createBlock(selectedBlockId as string, new Vector3(0, 0, 0));
             setBlocks([...blocks, block]);
         }
+    };
+
+    const onBlockClick = (e: ThreeEvent<PointerEvent>) => {
+        const objectPosition = new Vector3(e.object.position.x, e.object.position.y, e.object.position.z);
+        const newPosition = objectPosition.add(
+            e.face?.normal ?? new Vector3(0, 0, 0)
+        );
+
+        const block = createBlock(selectedBlockId as string, newPosition);
+        setBlocks([...blocks, block]);
     };
 
     return (
         <div onClick={onCanvasClick} css={CANVAS_STYLE}>
             <Canvas id="block-canvas">
                 <ContextBridge>
-                    <BlockCanvasInternal blocks={blocks} />
+                    <BlockCanvasInternal blocks={blocks} onBlockClick={onBlockClick} />
                 </ContextBridge>
             </Canvas>
         </div>
