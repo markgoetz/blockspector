@@ -32,8 +32,25 @@ const Toolbar: React.FC = () => {
         updateSelectedIndex(index);
     };
 
+    const onWheel = (e: React.WheelEvent) => {
+        let newIndex = toolbarContext.selectedIndex;
+        if (e.deltaY < 0) {
+            newIndex++;
+        } else if (e.deltaY > 0) {
+            newIndex--;
+        }
+
+        if (newIndex < 0) {
+            newIndex += (DELETE_INDEX + 1);
+        } else if (newIndex > DELETE_INDEX) {
+            newIndex -= (DELETE_INDEX + 1);
+        }
+
+        updateSelectedIndex(newIndex);
+    };
+
     return (
-        <menu css={CONTAINER_STYLE}>
+        <menu css={CONTAINER_STYLE} onWheel={onWheel}>
             <div>
                 <BlockButton
                     imageUrl={'/assets/images/spacer.svg'}
