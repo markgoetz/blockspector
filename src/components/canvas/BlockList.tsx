@@ -7,7 +7,7 @@ import { ThreeEvent } from '@react-three/fiber';
 
 type Props = {
     blocks: PositionedBlock[];
-    onBlockClick: (e: ThreeEvent<MouseEvent>) => void;
+    onBlockClick: (e: ThreeEvent<MouseEvent>, block: PositionedBlock) => void;
 };
 
 const BlockList: React.FC<Props> = ({ blocks, onBlockClick }) => {
@@ -24,7 +24,7 @@ const BlockList: React.FC<Props> = ({ blocks, onBlockClick }) => {
                     <Suspense fallback={null} key={block.uuid}>
                         <PlacedBlock
                             block={block}
-                            onClick={onBlockClick}
+                            onClick={(e) => onBlockClick(e, block)}
                             isHighlighted={highlightedBlockId === block.uuid}
                             onMouseOver={() => onMouseOver(block)}
                         />

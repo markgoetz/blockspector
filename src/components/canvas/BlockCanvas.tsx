@@ -17,7 +17,7 @@ extend({ OrbitControls });
 
 type InternalProps = {
     blocks: PositionedBlock[];
-    onBlockClick: (e: ThreeEvent<MouseEvent>) => void;
+    onBlockClick: (e: ThreeEvent<MouseEvent>, block: PositionedBlock) => void;
 };
 
 const BlockCanvasInternal: React.FC<InternalProps> = ({ blocks, onBlockClick }) => {
@@ -62,8 +62,17 @@ const BlockCanvas: React.FC = () => {
         }
     };
 
-    const onBlockClick = (e: ThreeEvent<MouseEvent>) => {
+    const onBlockClick = (e: ThreeEvent<MouseEvent>, clickedBlock: PositionedBlock) => {
+        if (selectedBlockId == null) {
+            return;
+        }
+
         if (e.face == null) {
+            return;
+        }
+
+        if (selectedBlockId === DELETE_ID) {
+            setBlocks(blocks.filter(b => b.uuid !== clickedBlock.uuid));
             return;
         }
 
