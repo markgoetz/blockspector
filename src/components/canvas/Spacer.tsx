@@ -27,7 +27,6 @@ const Spacer: React.FC<Props> = ({ position }) => {
 
     const color = isHighlighted ? COLORS.SECONDARY : COLORS.PRIMARY.BRIGHT;
 
-
     return (
         <mesh
             visible

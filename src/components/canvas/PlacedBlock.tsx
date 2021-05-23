@@ -29,7 +29,6 @@ const PlacedBlock: React.FC<Props> = ({ block }) => {
         } else {
             // highlight the face
         }
-
     };
 
     const onPointerLeave = () => {

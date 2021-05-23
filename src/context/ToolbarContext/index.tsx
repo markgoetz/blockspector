@@ -52,7 +52,6 @@ const useUpdateSelectedIndex = (): ((index: number) => void) => {
 
     return useCallback(
         (index: number) => {
-            console.log(index);
             setSelectedIndex(index);
         },
         [setSelectedIndex],
@@ -88,7 +87,6 @@ const usePutSpacerInSelectedIndex = (): (() => void) => {
 const useSelectedBlockId = (): string | null => {
     const context = useContext(ToolbarContext);
     const { toolbar, selectedIndex } = context;
-    console.log(selectedIndex);
 
     if (selectedIndex === DELETE_INDEX) {
         return DELETE_ID;
