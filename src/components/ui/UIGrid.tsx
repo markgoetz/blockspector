@@ -1,6 +1,8 @@
 /** @jsx jsx */
 import { CSSObject, jsx } from '@emotion/react';
 import React from 'react';
+import { DELETE_INDEX } from '../../constants/blocks';
+import { useUpdateSelectedIndex } from '../../context/ToolbarContext';
 import { SIZES } from '../../styles/variables';
 
 type Props = {
@@ -48,6 +50,8 @@ const FOOTER_STYLE: CSSObject = {
     gridArea: 'footer',
 };
 
+const NUMBER_KEYS = ['1', '2', '3', '4', '5', '6', '7', '8', '9'];
+
 const UIGrid: React.FC<Props> = ({
     header,
     sidebar,
@@ -55,8 +59,19 @@ const UIGrid: React.FC<Props> = ({
     toolbar,
     footer,
 }) => {
+    const updateSelectedIndex = useUpdateSelectedIndex();
+
+    const onKeyup = (e: React.KeyboardEvent) => {
+        if (NUMBER_KEYS.includes(e.key)) {
+            updateSelectedIndex(NUMBER_KEYS.indexOf(e.key));
+        } else if (e.key === 'Delete' || e.key === 'Backspace') {
+            updateSelectedIndex(DELETE_INDEX);
+        }
+    };
+
+
     return (
-        <div css={GRID_STYLE}>
+        <div css={GRID_STYLE} onKeyUp={onKeyup}>
             <div css={HEADER_STYLE}>{header}</div>
             <div css={SIDEBAR_STYLE}>{sidebar}</div>
             <div css={CANVAS_STYLE}>{canvas}</div>
