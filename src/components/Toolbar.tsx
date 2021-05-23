@@ -1,12 +1,18 @@
 /** @jsx jsx */
 import { CSSObject, jsx } from '@emotion/react';
 import React, { useContext } from 'react';
+import { SIZES } from '../styles/variables';
 import BLOCKS from '../constants/blocks';
 import { ToolbarContext } from '../context/ToolbarContext';
 import BlockButton from './BlockButton';
+import { DELETE_INDEX, SPACER_INDEX } from '../constants/indexNumbers';
 
 const CONTAINER_STYLE: CSSObject = {
-    margin: 'auto',
+    display: 'flex',
+    justifyContent: 'center',
+    '& > * + *': {
+        marginLeft: SIZES.BASE,
+    },
 };
 
 const LIST_STYLE: CSSObject = {
@@ -24,6 +30,13 @@ const Toolbar: React.FC = () => {
 
     return (
         <menu css={CONTAINER_STYLE}>
+            <div>
+                <BlockButton
+                    imageUrl={'/assets/images/spacer.svg'}
+                    onClick={() => setIndex(SPACER_INDEX)}
+                    selected={toolbarContext.selectedIndex === SPACER_INDEX}
+                />
+            </div>
             <ul css={LIST_STYLE}>
                 {toolbarContext.toolbar.map((blockId, index) => {
                     const block = BLOCKS.find((b) => b.id === blockId) ?? null;
@@ -31,7 +44,7 @@ const Toolbar: React.FC = () => {
                     return (
                         <li key={index}>
                             <BlockButton
-                                block={block}
+                                imageUrl={`/assets/textures/${block?.imageUrl}`}
                                 selected={
                                     index === toolbarContext.selectedIndex
                                 }
@@ -42,6 +55,13 @@ const Toolbar: React.FC = () => {
                     );
                 })}
             </ul>
+            <div>
+                <BlockButton
+                    imageUrl={'/assets/images/delete.svg'}
+                    onClick={() => setIndex(DELETE_INDEX)}
+                    selected={toolbarContext.selectedIndex === DELETE_INDEX}
+                />
+            </div>
         </menu>
     );
 };

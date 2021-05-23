@@ -1,4 +1,5 @@
 import React, { useCallback, useContext, useState } from 'react';
+import { DELETE_INDEX, SPACER_INDEX } from '../../constants/indexNumbers';
 import { SPACER_ID } from '../../constants/blocks';
 import ToolbarContext from './ToolbarContext';
 
@@ -59,7 +60,9 @@ const useUpdateToolbarItem = (): ((itemId: string) => void) => {
 
     return useCallback(
         (itemId: string) => {
-            setToolbarItemIdByIndex(itemId, selectedIndex);
+            if (selectedIndex !== SPACER_INDEX && selectedIndex !== DELETE_INDEX) {
+                setToolbarItemIdByIndex(itemId, selectedIndex);
+            }
         },
         [selectedIndex, setToolbarItemIdByIndex],
     );

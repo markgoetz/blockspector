@@ -1,6 +1,5 @@
 /** @jsx jsx */
 import { CSSObject, jsx } from '@emotion/react';
-import Block from '../definitions/Block';
 import { COLORS, SIZES } from '../styles/variables';
 
 const INDEX_STYLE: CSSObject = {
@@ -15,20 +14,17 @@ const INDEX_STYLE: CSSObject = {
 };
 
 type Props = {
-    block: Block | null;
+    imageUrl: string;
     index?: number;
     onClick: () => void;
     selected: boolean;
 };
 
-const BlockButton: React.FC<Props> = ({ block, index, onClick, selected }) => {
+const BlockButton: React.FC<Props> = ({ imageUrl, index, onClick, selected }) => {
     const buttonStyle: CSSObject = {
         width: SIZES.QUADRUPLE,
         height: SIZES.QUADRUPLE,
-        backgroundImage:
-            block != null
-                ? `url("/assets/textures/${block.imageUrl}")`
-                : undefined,
+        backgroundImage: `url("${imageUrl}")`,
         backgroundSize: 3 * SIZES.BASE,
         backgroundRepeat: 'no-repeat',
         backgroundPosition: '50% 50%',

@@ -20,7 +20,7 @@ const BlockGrid: React.FC = () => {
             {BLOCKS.map((block) => (
                 <li key={block.id}>
                     <BlockButton
-                        block={block}
+                        imageUrl={`/assets/textures/${block.imageUrl}`}
                         selected={false}
                         onClick={() => updateToolbarItem(block.id)}
                     />
