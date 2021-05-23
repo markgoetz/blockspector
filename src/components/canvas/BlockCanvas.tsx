@@ -2,12 +2,16 @@
 import { CSSObject, jsx } from '@emotion/react';
 import React, { useRef, useState } from 'react';
 import { Vector3 } from 'three';
-import { Canvas, extend, useFrame, useThree, ThreeEvent } from '@react-three/fiber';
+import {
+    Canvas,
+    extend,
+    useFrame,
+    useThree,
+    ThreeEvent,
+} from '@react-three/fiber';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 
-import {
-    useSelectedBlockId,
-} from '../../context/ToolbarContext';
+import { useSelectedBlockId } from '../../context/ToolbarContext';
 import BlockList from './BlockList';
 import { DELETE_ID } from '../../constants/blocks';
 import PositionedBlock from '../../definitions/PositionedBlock';
@@ -20,7 +24,10 @@ type InternalProps = {
     onBlockClick: (e: ThreeEvent<MouseEvent>, block: PositionedBlock) => void;
 };
 
-const BlockCanvasInternal: React.FC<InternalProps> = ({ blocks, onBlockClick }) => {
+const BlockCanvasInternal: React.FC<InternalProps> = ({
+    blocks,
+    onBlockClick,
+}) => {
     const controls = useRef<OrbitControls>();
     const {
         camera,
@@ -33,10 +40,7 @@ const BlockCanvasInternal: React.FC<InternalProps> = ({ blocks, onBlockClick }) 
     return (
         <React.Fragment>
             <orbitControls ref={controls} args={[camera, domElement]} />
-            <BlockList
-                blocks={blocks}
-                onBlockClick={onBlockClick}
-            />
+            <BlockList blocks={blocks} onBlockClick={onBlockClick} />
         </React.Fragment>
     );
 };
@@ -53,16 +57,19 @@ const BlockCanvas: React.FC = () => {
     const isBlockSelected = !isDeleteSelected && selectedBlockId != null;
 
     const onCanvasClick = () => {
-        if (
-            isBlockSelected &&
-            blocks.length === 0
-        ) {
-            const block = createBlock(selectedBlockId as string, new Vector3(0, 0, 0));
+        if (isBlockSelected && blocks.length === 0) {
+            const block = createBlock(
+                selectedBlockId as string,
+                new Vector3(0, 0, 0),
+            );
             setBlocks([...blocks, block]);
         }
     };
 
-    const onBlockClick = (e: ThreeEvent<MouseEvent>, clickedBlock: PositionedBlock) => {
+    const onBlockClick = (
+        e: ThreeEvent<MouseEvent>,
+        clickedBlock: PositionedBlock,
+    ) => {
         e.stopPropagation();
 
         if (selectedBlockId == null) {
@@ -74,14 +81,18 @@ const BlockCanvas: React.FC = () => {
         }
 
         if (selectedBlockId === DELETE_ID) {
-            setBlocks(blocks.filter(b => b.uuid !== clickedBlock.uuid));
+            setBlocks(blocks.filter((b) => b.uuid !== clickedBlock.uuid));
             return;
         }
 
-        const objectPosition = new Vector3(e.object.position.x, e.object.position.y, e.object.position.z);
+        const objectPosition = new Vector3(
+            e.object.position.x,
+            e.object.position.y,
+            e.object.position.z,
+        );
         const newPosition = objectPosition.add(e.face.normal);
 
-        if (blocks.some(block => block.position === newPosition)) {
+        if (blocks.some((block) => block.position === newPosition)) {
             return;
         }
 

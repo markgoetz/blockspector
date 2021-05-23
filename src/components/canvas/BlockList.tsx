@@ -11,7 +11,9 @@ type Props = {
 };
 
 const BlockList: React.FC<Props> = ({ blocks, onBlockClick }) => {
-    const [highlightedBlockId, setHighlightedBlockId] = useState<string | null>(null);
+    const [highlightedBlockId, setHighlightedBlockId] = useState<string | null>(
+        null,
+    );
 
     const onMouseOver = (block: PositionedBlock) => {
         setHighlightedBlockId(block.uuid);

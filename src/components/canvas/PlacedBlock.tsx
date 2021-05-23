@@ -12,7 +12,12 @@ type Props = {
     onMouseOver: () => void;
 };
 
-const PlacedBlock: React.FC<Props> = ({ block, onClick, isHighlighted, onMouseOver }) => {
+const PlacedBlock: React.FC<Props> = ({
+    block,
+    onClick,
+    isHighlighted,
+    onMouseOver,
+}) => {
     const { position, blockId } = block;
 
     const referenceBlock = BLOCKS.find((b) => b.id === blockId);
