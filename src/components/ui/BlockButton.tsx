@@ -13,9 +13,32 @@ const INDEX_STYLE: CSSObject = {
     padding: SIZES.QUARTER,
 };
 
+const TOOLTIP_CONTAINER_STYLE: CSSObject = {
+    position: 'relative',
+    '& > span': {
+        visibility: 'hidden',
+    },
+    '&:hover > span': {
+        visibility: 'visible',
+    },
+};
+
+const TOOLTIP_STYLE: CSSObject = {
+    position: 'absolute',
+    top: '100%',
+    display: 'flex',
+    backgroundColor: COLORS.PRIMARY.BRIGHT,
+    color: COLORS.GRAY.OFF_WHITE,
+    zIndex: 1,
+    textAlign: 'left',
+    padding: SIZES.HALF,
+    whiteSpace: 'nowrap',
+};
+
 type Props = {
     imageUrl: string | null;
     index?: number;
+    name: string;
     onClick: () => void;
     selected: boolean;
 };
@@ -23,6 +46,7 @@ type Props = {
 const BlockButton: React.FC<Props> = ({
     imageUrl,
     index,
+    name,
     onClick,
     selected,
 }) => {
@@ -36,13 +60,15 @@ const BlockButton: React.FC<Props> = ({
         boxShadow: selected
             ? `0 0 0 ${SIZES.QUARTER}px ${COLORS.PRIMARY.BRIGHT} inset`
             : `0 0 0 1px ${COLORS.GRAY.DARK} inset`,
-        position: 'relative',
     };
 
     return (
-        <button type="button" css={buttonStyle} onClick={onClick}>
-            {index != null && <span css={INDEX_STYLE}>{index + 1}</span>}
-        </button>
+        <div css={TOOLTIP_CONTAINER_STYLE}>
+            {name !== '' && (<span css={TOOLTIP_STYLE}>{name}</span>)}
+            <button type="button" css={buttonStyle} onClick={onClick}>
+                {index != null && <span css={INDEX_STYLE}>{index + 1}</span>}
+            </button>
+        </div>
     );
 };
 

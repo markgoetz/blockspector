@@ -56,6 +56,7 @@ const Toolbar: React.FC = () => {
                     imageUrl={'/assets/images/spacer.svg'}
                     onClick={() => setIndex(SPACER_INDEX)}
                     selected={toolbarContext.selectedIndex === SPACER_INDEX}
+                    name="Spacer"
                 />
             </div>
             <ul css={LIST_STYLE}>
@@ -65,6 +66,7 @@ const Toolbar: React.FC = () => {
                         block != null
                             ? `/assets/textures/${block?.imageUrl}`
                             : null;
+                    const name = block != null ? block.name : '';
 
                     return (
                         <li key={index}>
@@ -75,6 +77,7 @@ const Toolbar: React.FC = () => {
                                 }
                                 index={index}
                                 onClick={() => setIndex(index)}
+                                name={name}
                             />
                         </li>
                     );
@@ -85,6 +88,7 @@ const Toolbar: React.FC = () => {
                     imageUrl={'/assets/images/delete.svg'}
                     onClick={() => setIndex(DELETE_INDEX)}
                     selected={toolbarContext.selectedIndex === DELETE_INDEX}
+                    name="Delete"
                 />
             </div>
         </menu>

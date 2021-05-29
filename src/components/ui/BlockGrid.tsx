@@ -23,6 +23,7 @@ const BlockGrid: React.FC = () => {
                         imageUrl={`/assets/textures/${block.imageUrl}`}
                         selected={false}
                         onClick={() => updateToolbarItem(block.id)}
+                        name={block.name}
                     />
                 </li>
             ))}
