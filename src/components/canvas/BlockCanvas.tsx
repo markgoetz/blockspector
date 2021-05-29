@@ -16,6 +16,7 @@ import BlockList from './BlockList';
 import { DELETE_ID } from '../../constants/blocks';
 import PositionedBlock from '../../definitions/PositionedBlock';
 import createBlock from '../../lib/createBlock';
+import Background from './Background';
 
 extend({ OrbitControls });
 
@@ -40,6 +41,7 @@ const BlockCanvasInternal: React.FC<InternalProps> = ({
     return (
         <React.Fragment>
             <orbitControls ref={controls} args={[camera, domElement]} />
+            <Background z={-0.5} />
             <BlockList blocks={blocks} onBlockClick={onBlockClick} />
         </React.Fragment>
     );
@@ -54,12 +56,11 @@ const BlockCanvas: React.FC = () => {
     const [blocks, setBlocks] = useState<PositionedBlock[]>([]);
 
     const isDeleteSelected = selectedBlockId === DELETE_ID;
-    const isBlockSelected = !isDeleteSelected && selectedBlockId != null;
 
     const onCanvasClick = () => {
-        if (isBlockSelected && blocks.length === 0) {
+        if (!isDeleteSelected && selectedBlockId != null && blocks.length === 0) {
             const block = createBlock(
-                selectedBlockId as string,
+                selectedBlockId,
                 new Vector3(0, 0, 0),
             );
             setBlocks([...blocks, block]);
@@ -80,7 +81,7 @@ const BlockCanvas: React.FC = () => {
             return;
         }
 
-        if (selectedBlockId === DELETE_ID) {
+        if (isDeleteSelected) {
             setBlocks(blocks.filter((b) => b.uuid !== block.uuid));
             return;
         }
