@@ -29,7 +29,7 @@ const TOOLTIP_STYLE: CSSObject = {
     display: 'flex',
     backgroundColor: COLORS.PRIMARY.BRIGHT,
     color: COLORS.GRAY.OFF_WHITE,
-    zIndex: 1,
+    zIndex: 2,
     textAlign: 'left',
     padding: SIZES.HALF,
     whiteSpace: 'nowrap',

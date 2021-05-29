@@ -1,12 +1,20 @@
+/** @jsx jsx */
+import { jsx } from '@emotion/react'
+import { CSSObject } from '@emotion/serialize';
 import React from 'react';
+
+const HEADER_STYLE: CSSObject = {
+    position: 'relative',
+    zIndex: 1,
+};
 
 const Header: React.FC = () => {
     return (
-        <header>
+        <header css={HEADER_STYLE}>
             <h1>
                 <img
                     src="/assets/images/logo.svg"
-                    alt="cubicount"
+                    alt="Cubicount"
                     width="359"
                     height="64"
                 />
