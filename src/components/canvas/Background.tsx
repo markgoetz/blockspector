@@ -14,7 +14,7 @@ const Background: React.FC<Props> = ({ y }) => {
             <boxGeometry args={[2000, 1, 2000]} />
             <meshBasicMaterial attach="material" color={COLORS.GRAY.LIGHT} />
         </mesh>
-    )
+    );
 };
 
 export default Background;
