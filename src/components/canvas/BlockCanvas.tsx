@@ -40,8 +40,14 @@ const BlockCanvasInternal: React.FC<InternalProps> = ({
 
     return (
         <React.Fragment>
-            <orbitControls ref={controls} args={[camera, domElement]} />
-            <Background z={-0.5} />
+            <orbitControls
+                ref={controls}
+                args={[camera,domElement]}
+                screenSpacePanning={false}
+                maxPolarAngle={Math.PI / 2}
+                minPolarAngle={.002}
+            />
+            <Background y={-1} />
             <BlockList blocks={blocks} onBlockClick={onBlockClick} />
         </React.Fragment>
     );

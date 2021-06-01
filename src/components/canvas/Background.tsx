@@ -1,16 +1,16 @@
 import React from 'react';
 
 type Props = {
-    z: number,
+    y: number,
 };
 
-const Background: React.FC<Props> = ({ z }) => {
+const Background: React.FC<Props> = ({ y }) => {
     return (
         <mesh
             visible
-            position={[0, 0, z]}
+            position={[0, y, 0]}
         >
-            <planeBufferGeometry attach="geometry" args={[200, 200, 1, 1]} />
+            <boxGeometry args={[2000, 1, 2000]} />
             <meshBasicMaterial attach="material" color="white" />
         </mesh>
     )
