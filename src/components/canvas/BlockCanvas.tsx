@@ -1,7 +1,6 @@
 /** @jsx jsx */
 import { CSSObject, jsx } from '@emotion/react';
-import React, { useRef, useState } from 'react';
-import { Vector3 } from 'three';
+import React, { useRef } from 'react';
 import {
     Canvas,
     extend,
@@ -11,11 +10,8 @@ import {
 } from '@react-three/fiber';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 
-import { useSelectedBlockId } from '../../context/ToolbarContext';
 import BlockList from './BlockList';
-import { DELETE_ID } from '../../constants/blocks';
 import PositionedBlock from '../../definitions/PositionedBlock';
-import createBlock from '../../lib/createBlock';
 import Background from './Background';
 
 extend({ OrbitControls });
@@ -57,56 +53,13 @@ const CANVAS_STYLE: CSSObject = {
     height: '100%',
 };
 
-const BlockCanvas: React.FC = () => {
-    const selectedBlockId = useSelectedBlockId();
-    const [blocks, setBlocks] = useState<PositionedBlock[]>([]);
+type CanvasProps = {
+    blocks: PositionedBlock[],
+    onCanvasClick: () => void,
+    onBlockClick: (e: ThreeEvent<MouseEvent>, block: PositionedBlock) => void,
+};
 
-    const isDeleteSelected = selectedBlockId === DELETE_ID;
-
-    const onCanvasClick = () => {
-        if (!isDeleteSelected && selectedBlockId != null && blocks.length === 0) {
-            const block = createBlock(
-                selectedBlockId,
-                new Vector3(0, 0, 0),
-            );
-            setBlocks([...blocks, block]);
-        }
-    };
-
-    const onBlockClick = (
-        e: ThreeEvent<MouseEvent>,
-        block: PositionedBlock,
-    ) => {
-        e.stopPropagation();
-
-        if (selectedBlockId == null) {
-            return;
-        }
-
-        if (e.face == null) {
-            return;
-        }
-
-        if (isDeleteSelected) {
-            setBlocks(blocks.filter((b) => b.uuid !== block.uuid));
-            return;
-        }
-
-        const objectPosition = new Vector3(
-            e.object.position.x,
-            e.object.position.y,
-            e.object.position.z,
-        );
-        const newPosition = objectPosition.add(e.face.normal);
-
-        if (blocks.some((block) => block.position === newPosition)) {
-            return;
-        }
-
-        const newBlock = createBlock(selectedBlockId as string, newPosition);
-        setBlocks([...blocks, newBlock]);
-    };
-
+const BlockCanvas: React.FC<CanvasProps> = ({ blocks, onCanvasClick, onBlockClick }) => {
     return (
         <div onClick={onCanvasClick} css={CANVAS_STYLE}>
             <Canvas id="block-canvas">

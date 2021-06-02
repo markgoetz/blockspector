@@ -1,16 +1,8 @@
 /** @jsx jsx */
-import { CSSObject, Global, jsx } from '@emotion/react';
-import React, { Suspense } from 'react';
-import BlockCanvas from './components/canvas/BlockCanvas';
-import Footer from './components/ui/Footer';
-import Header from './components/ui/Header';
-import Sidebar from './components/ui/Sidebar';
-import Toolbar from './components/ui/Toolbar';
-import UIGrid from './components/ui/UIGrid';
+import { CSSObject, jsx } from '@emotion/react';
+import React from 'react';
+import AppLayout from './components/AppLayout';
 import ToolbarProvider from './context/ToolbarContext';
-import FONT_FACE from './styles/fonts';
-import GLOBAL_STYLES from './styles/global';
-import RESET from './styles/reset';
 
 const app: CSSObject = {
     position: 'fixed',
@@ -24,21 +16,8 @@ const app: CSSObject = {
 const App: React.FC = () => {
     return (
         <main css={app}>
-            <Global styles={RESET} />
-            <Global styles={FONT_FACE} />
-            <Global styles={GLOBAL_STYLES} />
             <ToolbarProvider>
-                <UIGrid
-                    header={<Header />}
-                    sidebar={<Sidebar />}
-                    toolbar={<Toolbar />}
-                    footer={<Footer />}
-                    canvas={
-                        <Suspense fallback={null}>
-                            <BlockCanvas />
-                        </Suspense>
-                    }
-                />
+                <AppLayout />
             </ToolbarProvider>
         </main>
     );
