@@ -38,10 +38,10 @@ const BlockCanvasInternal: React.FC<InternalProps> = ({
         <React.Fragment>
             <orbitControls
                 ref={controls}
-                args={[camera,domElement]}
+                args={[camera, domElement]}
                 screenSpacePanning={false}
                 maxPolarAngle={Math.PI / 2}
-                minPolarAngle={.002}
+                minPolarAngle={0.002}
             />
             <Background y={-1} />
             <BlockList blocks={blocks} onBlockClick={onBlockClick} />
@@ -54,12 +54,16 @@ const CANVAS_STYLE: CSSObject = {
 };
 
 type CanvasProps = {
-    blocks: PositionedBlock[],
-    onCanvasClick: () => void,
-    onBlockClick: (e: ThreeEvent<MouseEvent>, block: PositionedBlock) => void,
+    blocks: PositionedBlock[];
+    onCanvasClick: () => void;
+    onBlockClick: (e: ThreeEvent<MouseEvent>, block: PositionedBlock) => void;
 };
 
-const BlockCanvas: React.FC<CanvasProps> = ({ blocks, onCanvasClick, onBlockClick }) => {
+const BlockCanvas: React.FC<CanvasProps> = ({
+    blocks,
+    onCanvasClick,
+    onBlockClick,
+}) => {
     return (
         <div onClick={onCanvasClick} css={CANVAS_STYLE}>
             <Canvas id="block-canvas">

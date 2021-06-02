@@ -11,9 +11,12 @@ type Props = {
     children: (
         blocks: PositionedBlock[],
         onCanvasClick: () => void,
-        onBlockClick: (e: ThreeEvent<MouseEvent>, block: PositionedBlock) => void,
-    ) => JSX.Element,
-}
+        onBlockClick: (
+            e: ThreeEvent<MouseEvent>,
+            block: PositionedBlock,
+        ) => void,
+    ) => JSX.Element;
+};
 
 const BuildState: React.FC<Props> = (props) => {
     const selectedBlockId = useSelectedBlockId();
@@ -22,11 +25,12 @@ const BuildState: React.FC<Props> = (props) => {
     const isDeleteSelected = selectedBlockId === DELETE_ID;
 
     const onCanvasClick = () => {
-        if (!isDeleteSelected && selectedBlockId != null && blocks.length === 0) {
-            const block = createBlock(
-                selectedBlockId,
-                new Vector3(0, 0, 0),
-            );
+        if (
+            !isDeleteSelected &&
+            selectedBlockId != null &&
+            blocks.length === 0
+        ) {
+            const block = createBlock(selectedBlockId, new Vector3(0, 0, 0));
             setBlocks([...blocks, block]);
         }
     };

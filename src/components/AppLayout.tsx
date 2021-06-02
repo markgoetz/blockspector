@@ -14,8 +14,6 @@ import RESET from '../styles/reset';
 import BuildState from './BuildState';
 
 const AppLayout: React.FC = () => {
-    
-
     return (
         <React.Fragment>
             <Global styles={RESET} />

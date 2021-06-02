@@ -64,7 +64,7 @@ const BlockButton: React.FC<Props> = ({
 
     return (
         <div css={TOOLTIP_CONTAINER_STYLE}>
-            {name !== '' && (<span css={TOOLTIP_STYLE}>{name}</span>)}
+            {name !== '' && <span css={TOOLTIP_STYLE}>{name}</span>}
             <button type="button" css={buttonStyle} onClick={onClick}>
                 {index != null && <span css={INDEX_STYLE}>{index + 1}</span>}
             </button>

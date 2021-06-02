@@ -5,25 +5,22 @@ import PositionedBlock from '../../definitions/PositionedBlock';
 
 type Props = {
     blocks: PositionedBlock[];
-}
+};
 
 const BlockCount: React.FC<Props> = ({ blocks }) => {
-    const blocksByType = blocks.reduce(
-        (previous, block) => {
-            if (previous[block.blockId] == null) {
-                return {
-                    ...previous,
-                    [block.blockId]: 1,
-                };
-            }
-
+    const blocksByType = blocks.reduce((previous, block) => {
+        if (previous[block.blockId] == null) {
             return {
                 ...previous,
-                [block.blockId]: previous[block.blockId] + 1,
+                [block.blockId]: 1,
             };
-        },
-        {} as Record<string, number>,
-    );
+        }
+
+        return {
+            ...previous,
+            [block.blockId]: previous[block.blockId] + 1,
+        };
+    }, {} as Record<string, number>);
 
     console.log(blocksByType);
 

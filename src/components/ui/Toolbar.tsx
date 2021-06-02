@@ -41,9 +41,9 @@ const Toolbar: React.FC = () => {
         }
 
         if (newIndex < 0) {
-            newIndex += (DELETE_INDEX + 1);
+            newIndex += DELETE_INDEX + 1;
         } else if (newIndex > DELETE_INDEX) {
-            newIndex -= (DELETE_INDEX + 1);
+            newIndex -= DELETE_INDEX + 1;
         }
 
         updateSelectedIndex(newIndex);
