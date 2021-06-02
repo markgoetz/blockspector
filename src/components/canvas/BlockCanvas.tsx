@@ -50,7 +50,10 @@ const BlockCanvasInternal: React.FC<InternalProps> = ({
 };
 
 const CANVAS_STYLE: CSSObject = {
+    position: 'fixed',
+    width: '100%',
     height: '100%',
+    top: 0,
 };
 
 type CanvasProps = {

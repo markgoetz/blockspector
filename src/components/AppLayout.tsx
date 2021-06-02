@@ -21,21 +21,21 @@ const AppLayout: React.FC = () => {
             <Global styles={GLOBAL_STYLES} />
             <BuildState>
                 {(blocks, onCanvasClick, onBlockClick) => (
-                    <UIGrid
-                        header={<Header />}
-                        sidebar={<Sidebar blocks={blocks} />}
-                        toolbar={<Toolbar />}
-                        footer={<Footer />}
-                        canvas={
-                            <Suspense fallback={null}>
-                                <BlockCanvas
-                                    onBlockClick={onBlockClick}
-                                    onCanvasClick={onCanvasClick}
-                                    blocks={blocks}
-                                />
-                            </Suspense>
-                        }
-                    />
+                    <React.Fragment>
+                        <UIGrid
+                            header={<Header />}
+                            sidebar={<Sidebar blocks={blocks} />}
+                            toolbar={<Toolbar />}
+                            footer={<Footer />}
+                        />
+                        <Suspense fallback={null}>
+                            <BlockCanvas
+                                onBlockClick={onBlockClick}
+                                onCanvasClick={onCanvasClick}
+                                blocks={blocks}
+                            />
+                        </Suspense>
+                    </React.Fragment>
                 )}
             </BuildState>
         </React.Fragment>
