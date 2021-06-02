@@ -1,15 +1,24 @@
 import React from 'react';
-import { TextureLoader } from 'three/src/loaders/TextureLoader';
-import { useLoader, ThreeEvent } from '@react-three/fiber';
+import { ThreeEvent } from '@react-three/fiber';
 import PositionedBlock from '../../definitions/PositionedBlock';
 import BLOCKS from '../../constants/blocks';
 import { COLORS } from '../../styles/variables';
+import Block from '../../definitions/Block';
+import PlacedSimpleBlock from './PlacedSimpleBlock';
 
 type Props = {
     block: PositionedBlock;
     onClick: (e: ThreeEvent<MouseEvent>) => void;
     isHighlighted: boolean;
     onMouseOver: () => void;
+};
+
+const getElement = (block: Block, color: string) => {
+    switch (block.type) {
+        case 'simple': {
+            return <PlacedSimpleBlock block={block} color={color} />
+        }
+    }
 };
 
 const PlacedBlock: React.FC<Props> = ({
@@ -24,9 +33,8 @@ const PlacedBlock: React.FC<Props> = ({
     if (referenceBlock == null) {
         throw new Error(`Unable to find block ${blockId}.`);
     }
-
-    const referenceUrl = `/assets/textures/${referenceBlock.textureUrl}`;
-    const [colorMap] = useLoader(TextureLoader, [referenceUrl]);
+    const color = isHighlighted ? COLORS.SECONDARY : 'gray';
+    const element = getElement(referenceBlock, color);
 
     const onPointerOver = (e: ThreeEvent<PointerEvent>) => {
         e.stopPropagation();
@@ -37,7 +45,7 @@ const PlacedBlock: React.FC<Props> = ({
         e.stopPropagation();
     };
 
-    const color = isHighlighted ? COLORS.SECONDARY : 'gray';
+
 
     return (
         <mesh
@@ -47,8 +55,7 @@ const PlacedBlock: React.FC<Props> = ({
             onPointerLeave={onPointerLeave}
             onClick={onClick}
         >
-            <boxGeometry args={[1, 1, 1]} />
-            <meshBasicMaterial attach="material" map={colorMap} color={color} />
+            {element}
         </mesh>
     );
 };
