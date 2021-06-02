@@ -12,12 +12,19 @@ const GRID_STYLE: CSSObject = {
     gridGap: SIZES.BASE,
 };
 
-const BlockGrid: React.FC = () => {
+type Props = {
+    query: string;
+};
+
+const BlockGrid: React.FC<Props> = ({ query }) => {
     const updateToolbarItem = useUpdateToolbarItem();
+    const queriedBlocks = BLOCKS.filter((block) =>
+        block.name.toLowerCase().includes(query.toLowerCase()),
+    );
 
     return (
         <ul css={GRID_STYLE}>
-            {BLOCKS.map((block) => (
+            {queriedBlocks.map((block) => (
                 <li key={block.id}>
                     <BlockButton
                         imageUrl={`/assets/textures/${block.imageUrl}`}

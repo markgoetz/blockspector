@@ -48,13 +48,13 @@ const BlockCount: React.FC<Props> = ({ blocks }) => {
 
     return (
         <table css={TABLE_STYLE} cellSpacing={0} cellPadding={0}>
-            {Object.keys(blocksByType).map(blockId => {
-                const count = blocksByType[blockId]
-                const block = BLOCKS.find(block => block.id === blockId );
+            {Object.keys(blocksByType).map((blockId) => {
+                const count = blocksByType[blockId];
+                const block = BLOCKS.find((block) => block.id === blockId);
                 if (block == null) {
                     throw new Error(`Unknown block ID ${blockId}`);
                 }
-            
+
                 return (
                     <tr>
                         <td css={CELL_STYLE}>
@@ -69,7 +69,7 @@ const BlockCount: React.FC<Props> = ({ blocks }) => {
                 );
             })}
         </table>
-    )
+    );
 };
 
 export default BlockCount;
