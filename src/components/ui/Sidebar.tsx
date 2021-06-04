@@ -10,6 +10,10 @@ type Props = {
     blocks: PositionedBlock[];
 };
 
+const MENU_STYLE = {
+    height: '100%',
+};
+
 const Sidebar: React.FC<Props> = ({ blocks }) => {
     const tabs: Tab[] = [
         { id: 'palette', title: 'Block Palette', contents: <Palette /> },
@@ -21,7 +25,7 @@ const Sidebar: React.FC<Props> = ({ blocks }) => {
     ];
 
     return (
-        <menu>
+        <menu css={MENU_STYLE}>
             <TabPanel tabs={tabs} />
         </menu>
     );

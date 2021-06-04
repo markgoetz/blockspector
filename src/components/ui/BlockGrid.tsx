@@ -10,6 +10,10 @@ const GRID_STYLE: CSSObject = {
     display: 'grid',
     gridTemplateColumns: '1fr 1fr 1fr 1fr',
     gridGap: SIZES.BASE,
+    paddingRight: SIZES.BASE, // account for scrollbar
+    overflowX: 'visible',
+    overflowY: 'auto',
+    maxHeight: '100%',
 };
 
 type Props = {

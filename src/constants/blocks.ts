@@ -114,6 +114,78 @@ const BLOCKS: Block[] = [
         imageUrl: 'bricks.png',
         textureUrl: 'bricks.png',
     },
+    {
+        name: 'Brown Concrete Powder',
+        id: 'brown-concrete-powder',
+        imageUrl: 'brown_concrete_powder.png',
+        textureUrl: 'brown_concrete_powder.png',
+    },
+    {
+        name: 'Brown Concrete',
+        id: 'brown-concrete',
+        imageUrl: 'brown_concrete.png',
+        textureUrl: 'brown_concrete.png',
+    },
+    {
+        name: 'Brown Glazed Terracotta',
+        id: 'brown-glazed-terracotta',
+        imageUrl: 'brown_glazed_terracotta.png',
+        textureUrl: 'brown_glazed_terracotta.png',
+    },
+    {
+        name: 'Brown Mushroom Block',
+        id: 'brown-mushroom',
+        imageUrl: 'brown_mushroom_block.png',
+        textureUrl: 'brown_mushroom_block.png',
+    },
+    {
+        name: 'Brown Terracotta',
+        id: 'brown-terracotta',
+        imageUrl: 'brown_terracotta.png',
+        textureUrl: 'brown_terracotta.png',
+    },
+    {
+        name: 'Brown Wool',
+        id: 'brown-wool',
+        imageUrl: 'brown_wool.png',
+        textureUrl: 'brown_wool.png',
+    },
+    {
+        name: 'Bubble Coral',
+        id: 'bubble-coral',
+        imageUrl: 'bubble_coral_block.png',
+        textureUrl: 'bubble_coral_block.png',
+    },
+    {
+        name: 'Clay',
+        id: 'Clay',
+        imageUrl: 'clay.png',
+        textureUrl: 'clay.png',
+    },
+    {
+        name: 'Coal Block',
+        id: 'coal-block',
+        imageUrl: 'coal_block.png',
+        textureUrl: 'coal_block.png',
+    },
+    {
+        name: 'Coal Ore',
+        id: 'coal-ore',
+        imageUrl: 'coal_ore.png',
+        textureUrl: 'coal_ore.png',
+    },
+    {
+        name: 'Coarse Dirt',
+        id: 'coarse-dirt',
+        imageUrl: 'coarse_dirt.png',
+        textureUrl: 'coarse_dirt.png',
+    },
+    {
+        name: 'Cobblestone',
+        id: 'cobblestone',
+        imageUrl: 'cobblestone.png',
+        textureUrl: 'cobblestone.png',
+    },
 ];
 
 export default BLOCKS;

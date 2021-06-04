@@ -6,9 +6,16 @@ import SearchBar from './SearchBar';
 import { SIZES } from '../../styles/variables';
 
 const LAYOUT_STYLE: CSSObject = {
-    '> * + *': {
-        marginTop: SIZES.BASE,
-    },
+    display: 'grid',
+    gridColumnTemplate: '1fr',
+    gridRowTemplate: 'auto 1fr',
+    gridGap: SIZES.BASE,
+    maxHeight: '100%',
+    height: '100%',
+};
+
+const GRID_CONTAINER_STYLE: CSSObject = {
+    minHeight: 0,
 };
 
 const Palette: React.FC = () => {
@@ -16,8 +23,13 @@ const Palette: React.FC = () => {
 
     return (
         <div css={LAYOUT_STYLE}>
-            <SearchBar value={query} onChange={setQuery} />
-            <BlockGrid query={query} />
+            <div>
+                <SearchBar value={query} onChange={setQuery} />
+            </div>
+
+            <div css={GRID_CONTAINER_STYLE}>
+                <BlockGrid query={query} />
+            </div>
         </div>
     );
 };

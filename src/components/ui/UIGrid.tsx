@@ -22,9 +22,10 @@ const GRID_STYLE: CSSObject = {
         "toolbar toolbar"
         "footer footer"
     `,
-    gridTemplateRows: 'auto 1fr auto auto',
+    gridTemplateRows: `${SIZES.QUINTUPLE}px 1fr ${SIZES.QUADRUPLE}px ${SIZES.BASE}px`,
     gridTemplateColumns: 'max-content 1fr',
     height: '100%',
+    maxHeight: '100vh',
 };
 
 const HEADER_STYLE: CSSObject = {
@@ -35,6 +36,9 @@ const HEADER_STYLE: CSSObject = {
 const SIDEBAR_STYLE: CSSObject = {
     gridArea: 'sidebar',
     zIndex: 1,
+    minHeight: 0,
+    maxHeight: '100%',
+    overflowX: 'visible',
 };
 
 const TOOLBAR_STYLE: CSSObject = {
@@ -49,12 +53,7 @@ const FOOTER_STYLE: CSSObject = {
 
 const NUMBER_KEYS = ['1', '2', '3', '4', '5', '6', '7', '8', '9'];
 
-const UIGrid: React.FC<Props> = ({
-    header,
-    sidebar,
-    toolbar,
-    footer,
-}) => {
+const UIGrid: React.FC<Props> = ({ header, sidebar, toolbar, footer }) => {
     const updateSelectedIndex = useUpdateSelectedIndex();
     const ref = useRef<HTMLDivElement>(null);
 

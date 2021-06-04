@@ -54,7 +54,7 @@ const BlockButton: React.FC<Props> = ({
         width: SIZES.QUADRUPLE,
         height: SIZES.QUADRUPLE,
         backgroundImage: imageUrl != null ? `url("${imageUrl}")` : undefined,
-        backgroundSize: 3 * SIZES.BASE,
+        backgroundSize: SIZES.TRIPLE,
         backgroundRepeat: 'no-repeat',
         backgroundPosition: '50% 50%',
         boxShadow: selected
