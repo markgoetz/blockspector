@@ -9,6 +9,11 @@ type Props = {
     blocks: PositionedBlock[];
 };
 
+const CONTAINER_STYLE: CSSObject = {
+    overflowY: 'auto',
+    maxHeight: '100%',
+};
+
 const TABLE_STYLE: CSSObject = {
     width: '100%',
 };
@@ -47,30 +52,32 @@ const BlockCount: React.FC<Props> = ({ blocks }) => {
     const blocksByType = getBlocksByType(blocks);
 
     return (
-        <table css={TABLE_STYLE} cellSpacing={0} cellPadding={0}>
-            <tbody>
-                {Object.keys(blocksByType).map((blockId) => {
-                    const count = blocksByType[blockId];
-                    const block = BLOCKS.find((block) => block.id === blockId);
-                    if (block == null) {
-                        throw new Error(`Unknown block ID ${blockId}`);
-                    }
+        <div css={CONTAINER_STYLE}>
+            <table css={TABLE_STYLE} cellSpacing={0} cellPadding={0}>
+                <tbody>
+                    {Object.keys(blocksByType).map((blockId) => {
+                        const count = blocksByType[blockId];
+                        const block = BLOCKS.find((block) => block.id === blockId);
+                        if (block == null) {
+                            throw new Error(`Unknown block ID ${blockId}`);
+                        }
 
-                    return (
-                        <tr key={blockId}>
-                            <td css={CELL_STYLE}>
-                                <img
-                                    src={`/assets/textures/${block.imageUrl}`}
-                                    css={IMAGE_STYLE}
-                                />
-                            </td>
-                            <td css={CELL_STYLE}>{block.name}</td>
-                            <td css={COUNT_CELL_STYLE}>x {count}</td>
-                        </tr>
-                    );
-                })}
-            </tbody>
-        </table>
+                        return (
+                            <tr key={blockId}>
+                                <td css={CELL_STYLE}>
+                                    <img
+                                        src={`/assets/textures/${block.imageUrl}`}
+                                        css={IMAGE_STYLE}
+                                    />
+                                </td>
+                                <td css={CELL_STYLE}>{block.name}</td>
+                                <td css={COUNT_CELL_STYLE}>x {count}</td>
+                            </tr>
+                        );
+                    })}
+                </tbody>
+            </table>
+        </div>
     );
 };
 
