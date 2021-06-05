@@ -1,9 +1,9 @@
 import React, { useState, Suspense } from 'react';
+import { ThreeEvent } from '@react-three/fiber';
 import Spacer from './Spacer';
 import PlacedBlock from './PlacedBlock';
 import PositionedBlock from '../../definitions/PositionedBlock';
 import { SPACER_ID } from '../../constants/blocks';
-import { ThreeEvent } from '@react-three/fiber';
 
 type Props = {
     blocks: PositionedBlock[];

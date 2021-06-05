@@ -9,7 +9,9 @@ export const SIZES = {
     BASE: 16,
     ONEPOINTFIVE: 24,
     DOUBLE: 32,
+    TRIPLE: 48,
     QUADRUPLE: 64,
+    QUINTUPLE: 80,
 };
 
 export const COLORS = {

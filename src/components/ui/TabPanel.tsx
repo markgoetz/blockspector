@@ -18,6 +18,10 @@ const CONTAINER_STYLE: CSSObject = {
     borderStyle: 'solid',
     borderColor: COLORS.GRAY.MEDIUM,
     backgroundColor: COLORS.GRAY.LIGHT,
+    maxHeight: '100%',
+    display: 'grid',
+    gridTemplateColumns: '1fr',
+    gridTemplateRows: 'auto 1fr',
 };
 
 const TAB_LIST_STYLE: CSSObject = {
@@ -41,6 +45,7 @@ const SELECTED_TAB_STYLE: CSSObject = {
 const PANEL_STYLE: CSSObject = {
     padding: SIZES.BASE,
     backgroundColor: COLORS.GRAY.LIGHT,
+    minHeight: 0,
 };
 
 const BUTTON_STYLE: CSSObject = {

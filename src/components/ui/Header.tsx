@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { jsx } from '@emotion/react'
+import { jsx } from '@emotion/react';
 import { CSSObject } from '@emotion/serialize';
 import React from 'react';
 

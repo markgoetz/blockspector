@@ -2,7 +2,7 @@ import React from 'react';
 import { COLORS } from '../../styles/variables';
 
 type Props = {
-    y: number,
+    y: number;
 };
 
 const Background: React.FC<Props> = ({ y }) => {
