@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { CSSObject, jsx } from '@emotion/react';
-import React from 'react';
+import React, { useRef } from 'react';
 import { SIZES } from '../../styles/variables';
 import BLOCKS from '../../constants/blocks';
 import { useUpdateToolbarItem } from '../../context/ToolbarContext';
@@ -11,7 +11,7 @@ const GRID_STYLE: CSSObject = {
     gridTemplateColumns: '1fr 1fr 1fr 1fr',
     gridGap: SIZES.BASE,
     paddingRight: SIZES.BASE, // account for scrollbar
-    overflowX: 'visible',
+    overflowX: 'hidden',
     overflowY: 'auto',
     maxHeight: '100%',
 };
@@ -21,13 +21,14 @@ type Props = {
 };
 
 const BlockGrid: React.FC<Props> = ({ query }) => {
+    const gridRef = useRef<HTMLUListElement>(null);
     const updateToolbarItem = useUpdateToolbarItem();
     const queriedBlocks = BLOCKS.filter((block) =>
         block.name.toLowerCase().includes(query.toLowerCase()),
     );
 
     return (
-        <ul css={GRID_STYLE}>
+        <ul css={GRID_STYLE} ref={gridRef}>
             {queriedBlocks.map((block) => (
                 <li key={block.id}>
                     <BlockButton
@@ -35,6 +36,7 @@ const BlockGrid: React.FC<Props> = ({ query }) => {
                         selected={false}
                         onClick={() => updateToolbarItem(block.id)}
                         name={block.name}
+                        containerRef={gridRef}
                     />
                 </li>
             ))}

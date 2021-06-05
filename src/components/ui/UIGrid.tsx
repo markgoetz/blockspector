@@ -22,7 +22,9 @@ const GRID_STYLE: CSSObject = {
         "toolbar toolbar"
         "footer footer"
     `,
-    gridTemplateRows: `${SIZES.QUINTUPLE}px calc(100vh - ${15 * SIZES.BASE}px) ${SIZES.QUADRUPLE}px ${SIZES.BASE}px`,
+    gridTemplateRows: `${SIZES.QUINTUPLE}px calc(100vh - ${
+        15 * SIZES.BASE
+    }px) ${SIZES.QUADRUPLE}px ${SIZES.BASE}px`,
     gridTemplateColumns: 'max-content 1fr',
     height: '100%',
     maxHeight: '100vh',

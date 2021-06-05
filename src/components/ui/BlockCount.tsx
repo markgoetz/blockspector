@@ -57,7 +57,9 @@ const BlockCount: React.FC<Props> = ({ blocks }) => {
                 <tbody>
                     {Object.keys(blocksByType).map((blockId) => {
                         const count = blocksByType[blockId];
-                        const block = BLOCKS.find((block) => block.id === blockId);
+                        const block = BLOCKS.find(
+                            (block) => block.id === blockId,
+                        );
                         if (block == null) {
                             throw new Error(`Unknown block ID ${blockId}`);
                         }
